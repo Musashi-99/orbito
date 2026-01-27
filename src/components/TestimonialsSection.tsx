@@ -6,40 +6,34 @@ import { Card } from "./ui/card";
 
 const testimonials = [
   {
-    name: "Michael Chen",
-    role: "Professional Trader",
-    image: "https://avatars.githubusercontent.com/u/1234567?v=4",
-    content: "The real-time market data and advanced trading features have significantly improved my trading performance. The platform's security measures give me peace of mind."
+    name: "Amit Verma",
+    role: "Founder, SaaS Startup (India)",
+    initials: "AV",
+    content: "Orbito helped us design and build a scalable backend architecture that handled rapid user growth without issues. Their system design and execution were clean, reliable, and production-ready."
   },
   {
-    name: "Sarah Johnson",
-    role: "Crypto Fund Manager",
-    image: "https://avatars.githubusercontent.com/u/2345678?v=4",
-    content: "CryptoTrade's institutional-grade tools have transformed our trading strategy. The API integration and automated features have saved us countless hours."
+    name: "Sarah Mitchell",
+    role: "Product Manager, US-Based Startup",
+    initials: "SM",
+    content: "Working with Orbito felt like having an in-house engineering team. They delivered our full-stack application on time and made thoughtful architectural decisions that saved us future rework."
   },
   {
-    name: "David Wilson",
-    role: "Early Crypto Investor",
-    image: "https://avatars.githubusercontent.com/u/3456789?v=4",
-    content: "The customer support is exceptional, and the platform's intuitive design made getting started with crypto trading seamless. A game-changer for both beginners and pros."
+    name: "Rahul Mehta",
+    role: "CTO, FinTech Platform (India)",
+    initials: "RM",
+    content: "The team at Orbito understands backend scalability and real-time systems deeply. Their experience with APIs, databases, and system performance made a real difference for our product."
   },
   {
-    name: "Emily Zhang",
-    role: "DeFi Developer",
-    image: "https://avatars.githubusercontent.com/u/4567890?v=4",
-    content: "We've seen remarkable improvements in our trading efficiency since switching to CryptoTrade. The smart order routing and liquidity aggregation are particularly impressive."
+    name: "Daniel Brooks",
+    role: "Engineering Lead, US Startup",
+    initials: "DB",
+    content: "Orbito's engineers were proactive, transparent, and technically strong. From backend services to deployment, everything was handled with a high level of professionalism."
   },
   {
-    name: "James Rodriguez",
-    role: "Crypto Security Expert",
-    image: "https://avatars.githubusercontent.com/u/5678901?v=4",
-    content: "The security features are robust and the regular updates keep us ahead of emerging threats. It's exactly what the crypto industry needed."
-  },
-  {
-    name: "Lisa Thompson",
-    role: "Portfolio Manager",
-    image: "https://avatars.githubusercontent.com/u/6789012?v=4",
-    content: "The platform's ability to handle complex trading strategies while maintaining simplicity in its interface is remarkable. It's been invaluable for our portfolio management."
+    name: "Neha Kapoor",
+    role: "Operations Lead, AI-Driven Product (India)",
+    initials: "NK",
+    content: "Their AI integration and automation workflows reduced manual effort significantly. Orbito delivered exactly what we needed without unnecessary complexity."
   }
 ];
 
@@ -54,9 +48,9 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-normal mb-4">Trusted by Traders</h2>
-          <p className="text-muted-foreground text-lg">
-            Join thousands of satisfied traders on CryptoTrade
+          <h2 className="text-5xl font-normal mb-4">Trusted by Founders & Engineering Teams</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Teams across India and the US rely on Orbito for scalable backend systems, AI solutions, and end-to-end product development.
           </p>
         </motion.div>
 
@@ -66,9 +60,8 @@ const TestimonialsSection = () => {
               {testimonials.map((testimonial, index) => (
                 <Card key={`${index}-1`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border-white/5 hover:border-white/10 transition-all duration-300 p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <Avatar className="h-12 w-12">
-                      <AvatarImage src={testimonial.image} />
-                      <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
+                    <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
+                      <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>
                     </Avatar>
                     <div>
                       <h4 className="font-medium text-white/90">{testimonial.name}</h4>
@@ -76,7 +69,7 @@ const TestimonialsSection = () => {
                     </div>
                   </div>
                   <p className="text-white/70 leading-relaxed">
-                    {testimonial.content}
+                    "{testimonial.content}"
                   </p>
                 </Card>
               ))}
@@ -85,9 +78,8 @@ const TestimonialsSection = () => {
               {testimonials.map((testimonial, index) => (
                 <Card key={`${index}-2`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border-white/5 hover:border-white/10 transition-all duration-300 p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <Avatar className="h-12 w-12">
-                      <AvatarImage src={testimonial.image} />
-                      <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
+                    <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
+                      <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>
                     </Avatar>
                     <div>
                       <h4 className="font-medium text-white/90">{testimonial.name}</h4>
@@ -95,7 +87,7 @@ const TestimonialsSection = () => {
                     </div>
                   </div>
                   <p className="text-white/70 leading-relaxed">
-                    {testimonial.content}
+                    "{testimonial.content}"
                   </p>
                 </Card>
               ))}
