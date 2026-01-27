@@ -60,9 +60,9 @@ export const CommitsGrid = ({ text }: { text: string }) => {
 
   const getRandomColor = () => {
     const commitColors = [
-      "#48d55d",
-      "#016d32",
-      "#0d4429"
+      "#4ADE80",
+      "#22C55E", 
+      "#16A34A"
     ];
     const randomIndex = Math.floor(Math.random() * commitColors.length);
     return commitColors[randomIndex];
@@ -76,29 +76,36 @@ export const CommitsGrid = ({ text }: { text: string }) => {
       key={animationKey}
       onMouseEnter={handleInteraction}
       onClick={handleInteraction}
-      className="w-full max-w-7xl bg-card border grid p-4 sm:p-8 gap-1.5 sm:gap-3 rounded-[10px] sm:rounded-[15px] cursor-pointer transition-transform hover:scale-[1.01]"
+      className="w-full max-w-7xl grid p-4 sm:p-8 gap-1.5 sm:gap-3 rounded-[10px] sm:rounded-[15px] cursor-pointer transition-transform hover:scale-[1.01]"
       style={{
         gridTemplateColumns: `repeat(${gridWidth}, minmax(0, 1fr))`,
         gridTemplateRows: `repeat(${gridHeight}, minmax(0, 1fr))`,
+        backgroundColor: "#050505",
+        border: "1px solid #111111",
       }}
     >
       {Array.from({ length: gridWidth * gridHeight }).map((_, index) => {
         const isHighlighted = highlightedCells.includes(index);
         const shouldFlash = !isHighlighted && getRandomFlash();
+        const highlightColor = getRandomColor();
 
         return (
           <div
             key={index}
             className={cn(
-              `border h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
+              `h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
               isHighlighted ? "animate-highlight" : "",
-              shouldFlash ? "animate-flash" : "",
-              !isHighlighted && !shouldFlash ? "bg-card" : ""
+              shouldFlash ? "animate-flash" : ""
             )}
             style={
               {
                 animationDelay: getRandomDelay(),
-                "--highlight": getRandomColor(),
+                "--highlight": highlightColor,
+                backgroundColor: !isHighlighted && !shouldFlash ? "#0a0a0a" : undefined,
+                border: `1px solid ${isHighlighted ? highlightColor : "#151515"}`,
+                boxShadow: isHighlighted 
+                  ? `0 0 8px ${highlightColor}, 0 0 16px ${highlightColor}80, 0 0 24px ${highlightColor}40` 
+                  : "none",
               } as CSSProperties
             }
           />
