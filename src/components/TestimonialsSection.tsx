@@ -58,7 +58,7 @@ const TestimonialsSection = () => {
           <div className="relative flex overflow-hidden py-4">
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-1`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border-white/5 hover:border-white/10 transition-all duration-300 p-8">
+                <Card key={`${index}-1`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border border-white/5 card-glow-hover p-8">
                   <div className="flex items-center gap-4 mb-6">
                     <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
                       <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>
@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
             </div>
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-2`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border-white/5 hover:border-white/10 transition-all duration-300 p-8">
+                <Card key={`${index}-2`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border border-white/5 card-glow-hover p-8">
                   <div className="flex items-center gap-4 mb-6">
                     <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
                       <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>

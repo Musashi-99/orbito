@@ -62,7 +62,22 @@
 }
 
 .glass-hover {
-  @apply transition-all duration-300 hover:bg-white/10;
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.glass-hover:hover {
+  @apply bg-white/10;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.15), 0 0 40px rgba(74, 222, 128, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+.card-glow-hover {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.card-glow-hover:hover {
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.15), 0 0 40px rgba(74, 222, 128, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-color: hsl(var(--primary) / 0.4);
 }
 
 .text-gradient {
@@ -74,11 +89,11 @@
 }
 
 .green-glow-hover {
-  @apply transition-all duration-300;
+  @apply transition-all duration-300 ease-in-out;
   position: relative;
 }
 
 .green-glow-hover:hover {
-  box-shadow: 0 0 20px rgba(52, 211, 153, 0.4), 0 0 40px rgba(52, 211, 153, 0.2);
-  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.15), 0 0 40px rgba(74, 222, 128, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-color: hsl(var(--primary) / 0.4);
 }
