@@ -40,13 +40,13 @@ export const CardSpotlight = ({ children, className = "" }: CardSpotlightProps) 
       onMouseMove={handleMouseMove}
       onMouseEnter={handleFocus}
       onMouseLeave={handleBlur}
-      className={`relative overflow-hidden rounded-xl bg-gradient-to-b from-neutral-900 to-neutral-950 ${className}`}
+      className={`relative overflow-hidden rounded-xl bg-gradient-to-b from-neutral-900 to-neutral-950 transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(74,222,128,0.15),0_0_40px_rgba(74,222,128,0.08),0_8px_32px_rgba(0,0,0,0.4)] ${className}`}
     >
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.06), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(74,222,128,.08), transparent 40%)`,
         }}
       />
       {children}
