@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card } from "./ui/card";
+import { SpotlightCard } from "./ui/spotlight-card";
 import { Users, Zap, Brain, MessageSquare, Globe, DollarSign } from "lucide-react";
 
 const reasons = [
@@ -69,15 +69,17 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
-            <Card className="h-full glass glass-hover p-8 border-white/10">
-              <div className="mb-6">
-                <div className="text-primary mb-4">
-                  🔹 {reason.icon}
+            <SpotlightCard className="h-full">
+              <div className="p-8">
+                <div className="mb-6">
+                  <div className="text-primary mb-4">
+                    {reason.icon}
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-4">{reason.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{reason.description}</p>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">{reason.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{reason.description}</p>
               </div>
-            </Card>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>
@@ -87,9 +89,12 @@ const WhyChooseSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="glass rounded-xl p-8 text-center border-primary/20"
       >
-        <p className="text-xl text-white mb-2">💡 At Orbito, we don't just code — we craft digital systems that empower businesses to grow, innovate, and thrive.</p>
+        <SpotlightCard className="text-center">
+          <div className="p-8">
+            <p className="text-xl text-white mb-2">💡 At Orbito, we don't just code — we craft digital systems that empower businesses to grow, innovate, and thrive.</p>
+          </div>
+        </SpotlightCard>
       </motion.div>
     </section>
   );

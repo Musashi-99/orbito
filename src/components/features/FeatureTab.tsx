@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useState, useRef } from "react";
 
 interface FeatureTabProps {
   icon: ReactNode;
@@ -9,18 +9,46 @@ interface FeatureTabProps {
 }
 
 export const FeatureTab = ({ icon, title, description, isActive }: FeatureTabProps) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current) return;
+    const rect = divRef.current.getBoundingClientRect();
+    setPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <div 
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={`
         w-full flex items-center gap-4 p-5 rounded-xl
-        transition-all duration-300 relative green-glow-hover
-        border border-transparent
+        transition-colors duration-300 relative overflow-hidden
+        border
         ${isActive 
-          ? 'glass shadow-lg shadow-primary/20 border-primary/30' 
-          : 'hover:glass-hover hover:border-primary/20'
+          ? 'bg-white/5 backdrop-blur-lg shadow-lg shadow-primary/20 border-primary/30' 
+          : 'border-white/10 hover:border-primary/40'
         }
       `}
     >
+      {/* Radial glow that follows cursor */}
+      {!isActive && (
+        <div
+          className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(74, 222, 128, 0.12), transparent 40%)`,
+          }}
+        />
+      )}
+      
       {isActive && (
         <motion.div
           layoutId="activeTab"
@@ -30,7 +58,7 @@ export const FeatureTab = ({ icon, title, description, isActive }: FeatureTabPro
           transition={{ duration: 0.2 }}
         />
       )}
-      <div className="flex items-center gap-4 min-w-0">
+      <div className="flex items-center gap-4 min-w-0 relative z-10">
         <div className={`${isActive ? 'text-primary' : 'text-muted-foreground'}`}>
           {icon}
         </div>

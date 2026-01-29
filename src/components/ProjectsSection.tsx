@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card } from "./ui/card";
+import { SpotlightCard } from "./ui/spotlight-card";
 import { Badge } from "./ui/badge";
 
 const projects = [
@@ -102,33 +102,35 @@ const ProjectsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
-            <Card className="h-full glass glass-hover p-8 border-white/10">
-              <h3 className="text-xl font-medium mb-4 text-white">{project.title}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
-              
-              <div className="mb-6">
-                <h4 className="text-sm font-medium text-primary mb-3">Key Features:</h4>
-                <ul className="space-y-2">
-                  {project.features.map((feature, idx) => (
-                    <li key={idx} className="text-sm text-gray-400 flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <SpotlightCard className="h-full">
+              <div className="p-8">
+                <h3 className="text-xl font-medium mb-4 text-white">{project.title}</h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-primary mb-3">Key Features:</h4>
+                  <ul className="space-y-2">
+                    {project.features.map((feature, idx) => (
+                      <li key={idx} className="text-sm text-gray-400 flex items-start">
+                        <span className="text-primary mr-2">•</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div>
-                <h4 className="text-sm font-medium text-primary mb-3">Tech Stack:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs bg-white/10 text-gray-300 border-white/20">
-                      {tech}
-                    </Badge>
-                  ))}
+                <div>
+                  <h4 className="text-sm font-medium text-primary mb-3">Tech Stack:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech, idx) => (
+                      <Badge key={idx} variant="secondary" className="text-xs bg-white/10 text-gray-300 border-white/20">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </Card>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

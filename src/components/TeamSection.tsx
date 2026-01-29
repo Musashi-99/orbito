@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card } from "./ui/card";
+import { SpotlightCard } from "./ui/spotlight-card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const teamMembers = [
@@ -69,41 +69,43 @@ const TeamSection = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
           >
-            <Card className="h-full glass glass-hover p-8 border-white/10">
-              <div className="flex items-center gap-4 mb-6">
-                <Avatar className="h-16 w-16">
-                  <AvatarImage src={member.image} />
-                  <AvatarFallback className="bg-primary/20 text-primary font-medium">
-                    {member.avatar}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <h3 className="text-xl font-medium text-white">{member.name}</h3>
-                  <p className="text-primary text-sm font-medium">{member.role}</p>
+            <SpotlightCard className="h-full">
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <Avatar className="h-16 w-16">
+                    <AvatarImage src={member.image} />
+                    <AvatarFallback className="bg-primary/20 text-primary font-medium">
+                      {member.avatar}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h3 className="text-xl font-medium text-white">{member.name}</h3>
+                    <p className="text-primary text-sm font-medium">{member.role}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">🔹 Role:</p>
+                    <p className="text-sm text-gray-300">{member.title}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">🔹 Expertise:</p>
+                    <p className="text-sm text-gray-300">{member.expertise}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">🔹 What he brings:</p>
+                    <p className="text-sm text-gray-300 leading-relaxed">{member.description}</p>
+                  </div>
+
+                  <div className="pt-4 border-t border-white/10">
+                    <p className="text-sm italic text-primary">💡 "{member.quote}"</p>
+                  </div>
                 </div>
               </div>
-
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">🔹 Role:</p>
-                  <p className="text-sm text-gray-300">{member.title}</p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">🔹 Expertise:</p>
-                  <p className="text-sm text-gray-300">{member.expertise}</p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">🔹 What he brings:</p>
-                  <p className="text-sm text-gray-300 leading-relaxed">{member.description}</p>
-                </div>
-
-                <div className="pt-4 border-t border-white/10">
-                  <p className="text-sm italic text-primary">💡 "{member.quote}"</p>
-                </div>
-              </div>
-            </Card>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>
@@ -113,27 +115,30 @@ const TeamSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="glass rounded-xl p-8 text-center"
       >
-        <h3 className="text-2xl font-medium mb-6 text-white">🌍 Why Our Team Works</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center">
-            <h4 className="font-medium text-primary mb-2">Balance of Experience & Fresh Energy</h4>
-            <p className="text-sm text-gray-400">Senior guidance + innovative perspectives</p>
+        <SpotlightCard>
+          <div className="p-8 text-center">
+            <h3 className="text-2xl font-medium mb-6 text-white">🌍 Why Our Team Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <h4 className="font-medium text-primary mb-2">Balance of Experience & Fresh Energy</h4>
+                <p className="text-sm text-gray-400">Senior guidance + innovative perspectives</p>
+              </div>
+              <div className="text-center">
+                <h4 className="font-medium text-primary mb-2">Full-Stack Coverage</h4>
+                <p className="text-sm text-gray-400">From frontend to backend to AI integration</p>
+              </div>
+              <div className="text-center">
+                <h4 className="font-medium text-primary mb-2">Collaborative Approach</h4>
+                <p className="text-sm text-gray-400">We work as one unit, not isolated freelancers</p>
+              </div>
+              <div className="text-center">
+                <h4 className="font-medium text-primary mb-2">Global Mindset</h4>
+                <p className="text-sm text-gray-400">We adapt to international clients' needs and deliver world-class quality</p>
+              </div>
+            </div>
           </div>
-          <div className="text-center">
-            <h4 className="font-medium text-primary mb-2">Full-Stack Coverage</h4>
-            <p className="text-sm text-gray-400">From frontend to backend to AI integration</p>
-          </div>
-          <div className="text-center">
-            <h4 className="font-medium text-primary mb-2">Collaborative Approach</h4>
-            <p className="text-sm text-gray-400">We work as one unit, not isolated freelancers</p>
-          </div>
-          <div className="text-center">
-            <h4 className="font-medium text-primary mb-2">Global Mindset</h4>
-            <p className="text-sm text-gray-400">We adapt to international clients' needs and deliver world-class quality</p>
-          </div>
-        </div>
+        </SpotlightCard>
       </motion.div>
     </section>
   );
