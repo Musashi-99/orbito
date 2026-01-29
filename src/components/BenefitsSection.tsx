@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card } from "./ui/card";
+import { SpotlightCard } from "./ui/spotlight-card";
 import { Target, Smartphone, Zap, Wrench, Users, HeadphonesIcon } from "lucide-react";
 
 const benefits = [
@@ -69,13 +69,15 @@ const BenefitsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
-            <Card className="h-full glass glass-hover p-8 border-white/10 text-center">
-              <div className="text-primary mb-6 flex justify-center">
-                {benefit.icon}
+            <SpotlightCard className="h-full">
+              <div className="p-8 text-center">
+                <div className="text-primary mb-6 flex justify-center">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-medium text-white mb-4">{benefit.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
               </div>
-              <h3 className="text-xl font-medium text-white mb-4">{benefit.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
-            </Card>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

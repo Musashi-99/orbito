@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Card } from "./ui/card";
+import { Avatar, AvatarFallback } from "./ui/avatar";
+import { SpotlightCard } from "./ui/spotlight-card";
 
 const testimonials = [
   {
@@ -37,6 +37,25 @@ const testimonials = [
   }
 ];
 
+const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
+  <SpotlightCard className="w-[400px] shrink-0 bg-black/40">
+    <div className="p-8">
+      <div className="flex items-center gap-4 mb-6">
+        <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
+          <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>
+        </Avatar>
+        <div>
+          <h4 className="font-medium text-white/90">{testimonial.name}</h4>
+          <p className="text-sm text-white/60">{testimonial.role}</p>
+        </div>
+      </div>
+      <p className="text-white/70 leading-relaxed">
+        "{testimonial.content}"
+      </p>
+    </div>
+  </SpotlightCard>
+);
+
 const TestimonialsSection = () => {
   return (
     <section className="py-20 overflow-hidden bg-black">
@@ -58,38 +77,12 @@ const TestimonialsSection = () => {
           <div className="relative flex overflow-hidden py-4">
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-1`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border border-white/5 card-glow-hover p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
-                      <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h4 className="font-medium text-white/90">{testimonial.name}</h4>
-                      <p className="text-sm text-white/60">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-white/70 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                </Card>
+                <TestimonialCard key={`${index}-1`} testimonial={testimonial} />
               ))}
             </div>
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-2`} className="w-[400px] shrink-0 bg-black/40 backdrop-blur-xl border border-white/5 card-glow-hover p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <Avatar className="h-12 w-12 bg-white/10 border border-white/10">
-                      <AvatarFallback className="bg-transparent text-white/80 font-medium">{testimonial.initials}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h4 className="font-medium text-white/90">{testimonial.name}</h4>
-                      <p className="text-sm text-white/60">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-white/70 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                </Card>
+                <TestimonialCard key={`${index}-2`} testimonial={testimonial} />
               ))}
             </div>
           </div>
