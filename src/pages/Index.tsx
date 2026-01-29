@@ -12,6 +12,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
+import WhyGlobalTeamsSection from "@/components/WhyGlobalTeamsSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ContactSection from "@/components/ContactSection";
 import { CommitsGrid } from "@/components/ui/commits-grid";
@@ -104,6 +105,11 @@ const Index = () => {
       {/* Projects Section */}
       <div className="bg-black">
         <ProjectsSection />
+      </div>
+
+      {/* Why Global Teams Section */}
+      <div className="bg-black">
+        <WhyGlobalTeamsSection />
       </div>
 
       {/* Why Choose Section */}
