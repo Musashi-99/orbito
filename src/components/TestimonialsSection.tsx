@@ -6,34 +6,34 @@ import { SpotlightCard } from "./ui/spotlight-card";
 
 const testimonials = [
   {
-    name: "Amit Verma",
-    role: "Founder, SaaS Startup (India)",
-    initials: "AV",
-    content: "Orbito helped us design and build a scalable backend architecture that handled rapid user growth without issues. Their system design and execution were clean, reliable, and production-ready."
+    name: "Arjun Deshmukh",
+    role: "CTO, NexQueue (Pune)",
+    initials: "AD",
+    content: "We were struggling with our queue management backend — constant timeouts under load. Orbito rebuilt the whole pipeline using Redis and worker threads. Haven't had a single incident in 4 months now."
   },
   {
-    name: "Sarah Mitchell",
-    role: "Product Manager, US-Based Startup",
-    initials: "SM",
-    content: "Working with Orbito felt like having an in-house engineering team. They delivered our full-stack application on time and made thoughtful architectural decisions that saved us future rework."
+    name: "Lukas Schreiber",
+    role: "Co-Founder, Planwell GmbH (Berlin)",
+    initials: "LS",
+    content: "Honestly didn't expect this level of ownership from an external team. They refactored our entire API layer, wrote proper tests, and even caught a critical auth bug we'd missed. Felt like working with senior engineers, not vendors."
   },
   {
-    name: "Rahul Mehta",
-    role: "CTO, FinTech Platform (India)",
-    initials: "RM",
-    content: "The team at Orbito understands backend scalability and real-time systems deeply. Their experience with APIs, databases, and system performance made a real difference for our product."
+    name: "Priya Nair",
+    role: "Founder, Klaara Health (Bangalore)",
+    initials: "PN",
+    content: "We needed an ML pipeline that actually worked in production — not just a Jupyter notebook demo. Orbito shipped a working inference service with monitoring and logging in under 3 weeks. Our data team was genuinely impressed."
   },
   {
-    name: "Daniel Brooks",
-    role: "Engineering Lead, US Startup",
-    initials: "DB",
-    content: "Orbito's engineers were proactive, transparent, and technically strong. From backend services to deployment, everything was handled with a high level of professionalism."
+    name: "Tobias Engel",
+    role: "Head of Engineering, Fleetaro (Munich)",
+    initials: "TE",
+    content: "They helped us migrate from a monolith to microservices without any downtime. The architecture docs they left behind are still our single source of truth. Really solid engineering thinking."
   },
   {
-    name: "Neha Kapoor",
-    role: "Operations Lead, AI-Driven Product (India)",
-    initials: "NK",
-    content: "Their AI integration and automation workflows reduced manual effort significantly. Orbito delivered exactly what we needed without unnecessary complexity."
+    name: "Sneha Kulkarni",
+    role: "Product Lead, Draftbox (Hyderabad)",
+    initials: "SK",
+    content: "What stood out was how fast they understood our product context. Within the first week, they were shipping features that matched our design system perfectly. No hand-holding needed."
   }
 ];
 
