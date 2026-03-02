@@ -19,29 +19,25 @@ export const FeaturesSection = () => {
       </div>
 
       <Tabs defaultValue={features[0].title} className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          {/* Left side - Tab triggers */}
-          <div className="md:col-span-5 space-y-3">
-            <TabsList className="flex flex-col w-full bg-transparent h-auto p-0 space-y-3">
-              {features.map((feature) => (
-                <TabsTrigger
-                  key={feature.title}
-                  value={feature.title}
-                  className="w-full data-[state=active]:shadow-none data-[state=active]:bg-transparent"
-                >
-                  <FeatureTab
-                    title={feature.title}
-                    description={feature.description}
-                    icon={feature.icon}
-                    isActive={false}
-                  />
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+        <div className="flex flex-col items-center">
+          <TabsList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full max-w-5xl bg-transparent h-auto p-0 gap-4">
+            {features.map((feature) => (
+              <TabsTrigger
+                key={feature.title}
+                value={feature.title}
+                className="w-full data-[state=active]:shadow-none data-[state=active]:bg-transparent"
+              >
+                <FeatureTab
+                  title={feature.title}
+                  description={feature.description}
+                  icon={feature.icon}
+                  isActive={false}
+                />
+              </TabsTrigger>
+            ))}
+          </TabsList>
 
-          {/* Right side - Tab content with images */}
-          <div className="md:col-span-7">
+          <div className="w-full max-w-5xl mt-12">
             {features.map((feature) => (
               <TabsContent
                 key={feature.title}
