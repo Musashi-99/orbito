@@ -15,6 +15,45 @@ import WhyGlobalTeamsSection from "@/components/WhyGlobalTeamsSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ContactSection from "@/components/ContactSection";
 import { CommitsGrid } from "@/components/ui/commits-grid";
+import { Gallery6 } from "@/components/ui/gallery6";
+
+const ourWorkItems = [
+  {
+    id: "work-1",
+    title: "WhatsApp E-Commerce Platform",
+    summary: "Built a complete e-commerce system inside WhatsApp — AI-driven search, order management, and payments via chat.",
+    url: "#",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
+  },
+  {
+    id: "work-2",
+    title: "Multi-Tenant SaaS Platform",
+    summary: "Affordable Shopify alternative for small businesses with real-time chat support and multi-tenant architecture.",
+    url: "#",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+  },
+  {
+    id: "work-3",
+    title: "AI Semantic Search Engine",
+    summary: "Context-aware search engine with NLP-based semantic search, fully customizable for any business workflow.",
+    url: "#",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+  },
+  {
+    id: "work-4",
+    title: "Real-Time Analytics Dashboard",
+    summary: "Kafka-driven enterprise dashboard streaming live data with WebSocket-based visualizations.",
+    url: "#",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+  },
+  {
+    id: "work-5",
+    title: "AI Call Review System",
+    summary: "Automated call analysis with Whisper ASR transcription and sentiment analysis using fine-tuned LLMs.",
+    url: "#",
+    image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=800&q=80",
+  },
+];
 
 const Index = () => {
   return (
@@ -99,6 +138,11 @@ const Index = () => {
       {/* Features Section */}
       <div id="features" className="bg-black">
         <FeaturesSection />
+      </div>
+
+      {/* Our Work Gallery */}
+      <div className="bg-black">
+        <Gallery6 heading="Our Work" items={ourWorkItems} />
       </div>
 
       {/* Projects Section */}
