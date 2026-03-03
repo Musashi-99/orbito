@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Command, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
@@ -34,7 +34,9 @@ const Navigation = () => {
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const yOffset = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }
   };
@@ -55,9 +57,8 @@ const Navigation = () => {
     >
       <div className="mx-auto h-full px-6">
         <nav className="flex items-center justify-between h-full">
-          <div className="flex items-center gap-2">
-            <Command className="w-5 h-5 text-primary" />
-            <span className="font-bold text-base">Orbito</span>
+          <div className="flex items-center">
+            <span className="font-bold text-base tracking-wider">ORBITO</span>
           </div>
 
           {/* Desktop Navigation */}
