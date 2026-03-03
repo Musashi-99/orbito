@@ -141,7 +141,7 @@ const Index = () => {
       </div>
 
       {/* Our Work Gallery */}
-      <div className="bg-black">
+      <div id="our-work" className="bg-black">
         <Gallery6 heading="Our Work" items={ourWorkItems} />
       </div>
 
