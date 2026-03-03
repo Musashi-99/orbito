@@ -116,7 +116,19 @@ const Index = () => {
                 Book a Meeting
               </a>
             </Button>
-            <Button size="lg" variant="link" className="text-white">
+            <Button 
+              size="lg" 
+              variant="link" 
+              className="text-white"
+              onClick={() => {
+                const element = document.getElementById('our-work');
+                if (element) {
+                  const yOffset = -100;
+                  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                  window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+              }}
+            >
               Explore Our Work <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </motion.div>
