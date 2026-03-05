@@ -83,7 +83,7 @@ const ReelCard = ({ reel, isActive }: { reel: typeof reelData[0]; isActive: bool
         <div className="w-9 h-9 rounded-full bg-white/20 border border-white/30 overflow-hidden flex items-center justify-center">
           <span className="text-[10px] font-bold">O</span>
         </div>
-        
+
         <button onClick={() => setLiked(!liked)} className="flex flex-col items-center gap-1">
           <Heart className={`w-7 h-7 ${liked ? 'fill-red-500 text-red-500' : 'text-white'} transition-colors`} />
           <span className="text-[11px] text-white font-medium">{reel.likes}</span>
@@ -119,8 +119,8 @@ const ReelCard = ({ reel, isActive }: { reel: typeof reelData[0]; isActive: bool
         <div className="flex items-center gap-2">
           <Music2 className="w-3 h-3 text-white/70" />
           <div className="overflow-hidden">
-            <motion.p 
-              animate={{ x: [0, -100, 0] }} 
+            <motion.p
+              animate={{ x: [0, -100, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               className="text-[11px] text-white/70 whitespace-nowrap"
             >
@@ -183,14 +183,14 @@ const ReelShowcase = () => {
         >
           {/* Left: Info */}
           <div>
-            <h2 className="text-5xl md:text-6xl font-normal mb-6 tracking-tight">
-              <span className="text-gradient font-medium">ReelBox</span>
+            <h2 className="section-heading mb-6">
+              <span className="heading-accent">ReelBox</span>
               <br />
-              <span className="text-foreground">Your Own Reel Platform</span>
+              Your Own Reel Platform
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              A production-ready, white-label short-video platform. Infinite scroll 
-              that feels native, video transcoding pipeline, recommendation engine, 
+              A production-ready, white-label short-video platform. Infinite scroll
+              that feels native, video transcoding pipeline, recommendation engine,
               and scalable architecture — all out of the box.
             </p>
             <ul className="space-y-4 mb-10">
@@ -219,7 +219,7 @@ const ReelShowcase = () => {
               <div className="absolute inset-0 rounded-[40px] border-[3px] border-white/20 bg-black overflow-hidden shadow-2xl shadow-black/50">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-2xl z-20" />
-                
+
                 {/* Scrollable reels container */}
                 <div
                   ref={scrollRef}

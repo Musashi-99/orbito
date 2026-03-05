@@ -84,7 +84,7 @@ const Footer = () => {
 
           <div className="mt-8 pt-8 border-t border-white/10">
             <p className="text-sm text-muted-foreground text-center">
-              © {new Date().getFullYear()} Orbito. All Rights Reserved.
+              © {new Date().getFullYear()} ORBITO. All Rights Reserved.
             </p>
           </div>
         </div>

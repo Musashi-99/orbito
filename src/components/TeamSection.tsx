@@ -54,10 +54,9 @@ const TeamSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-5xl md:text-6xl font-normal mb-6 tracking-tight text-left"
+          className="section-heading mb-6"
         >
-          Meet the{" "}
-          <span className="text-gradient font-medium">Team</span>
+          Meet the <span className="heading-accent">Team</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

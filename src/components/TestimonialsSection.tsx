@@ -67,9 +67,14 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-normal mb-4">Trusted by Founders & Engineering Teams</h2>
+          <p className="text-xs text-primary mb-2 uppercase tracking-widest font-medium">
+            Trusted by founders and engineering teams building scalable products.
+          </p>
+          <h2 className="section-heading mb-6">
+            Trusted by Founders & <span className="heading-accent">Engineering Teams</span>
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Teams across India and the US rely on Orbito for scalable backend systems, AI solutions, and end-to-end product development.
+            Teams across India and the US rely on ORBITO for scalable backend systems, AI solutions, and end-to-end product development.
           </p>
         </motion.div>
 

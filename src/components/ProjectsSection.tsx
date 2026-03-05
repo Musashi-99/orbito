@@ -8,7 +8,7 @@ const projects = [
     description: "Built a complete e-commerce system inside WhatsApp, enabling customers to browse, order, and pay directly through chat.",
     features: [
       "AI-driven product search & recommendations",
-      "Order placement & address management", 
+      "Order placement & address management",
       "Real-time updates via WhatsApp API",
       "Smooth GSAP animations for frontend demo"
     ],
@@ -77,10 +77,9 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-5xl md:text-6xl font-normal mb-6 tracking-tight text-left"
+          className="section-heading mb-6"
         >
-          Featured{" "}
-          <span className="text-gradient font-medium">Projects</span>
+          Featured <span className="heading-accent">Projects</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -106,7 +105,7 @@ const ProjectsSection = () => {
               <div className="p-8">
                 <h3 className="text-xl font-medium mb-4 text-white">{project.title}</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
-                
+
                 <div className="mb-6">
                   <h4 className="text-sm font-medium text-primary mb-3">Key Features:</h4>
                   <ul className="space-y-2">

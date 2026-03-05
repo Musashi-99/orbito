@@ -78,7 +78,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
+
       <main className="pt-32 pb-20">
         <div className="container px-4">
           {/* Hero Section */}
@@ -133,7 +133,7 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-12 text-center">Additional Expertise</h2>
+            <h2 className="section-heading mb-12 text-center">Additional <span className="heading-accent">Expertise</span></h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {additionalServices.map((service, index) => (
                 <motion.div
@@ -160,20 +160,20 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="glass glass-hover rounded-xl p-12 text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+            <h2 className="section-heading mb-6">Ready to Start Your <span className="heading-accent">Project?</span></h2>
             <p className="text-muted-foreground mb-8 text-lg">
               Let's discuss how we can help bring your vision to life with our technical expertise
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="button-gradient"
                 onClick={() => window.open('https://cal.com/your-company', '_blank')}
               >
                 Book a Meeting
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 onClick={() => window.location.href = '/contact'}
               >

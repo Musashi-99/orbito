@@ -68,19 +68,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black text-foreground">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="relative container px-4 pt-40 pb-20"
       >
         {/* Background */}
-        <div 
+        <div
           className="absolute inset-0 -z-10 bg-[#0A0A0A]"
         />
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -89,45 +89,49 @@ const Index = () => {
         >
           <span className="text-sm font-medium">
             <Command className="w-4 h-4 inline-block mr-2" />
-            Global freelancer team of experienced developers
+            Product Engineering Team for Startups & Growing Companies
           </span>
         </motion.div>
-        
+
         <div className="max-w-4xl relative z-10">
-          <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left">
+          <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left italic">
             <span className="text-gray-200">
-              <TextGenerateEffect words="Orbito — Engineering" />
+              <TextGenerateEffect words="ORBITO — Engineering" />
             </span>
             <br />
             <span className="text-white font-medium">
-              <TextGenerateEffect words="Scalable Digital Futures" />
+              <TextGenerateEffect words="Scalable Digital Products" />
             </span>
           </h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl text-left"
           >
-            We are a global freelancer team of experienced developers building full-stack applications, powerful AI solutions, and high-performance backend systems for ambitious clients worldwide.{" "}
-            <span className="text-white">Start your project today.</span>
+            We design and build production-ready software systems — scalable backends, AI-powered applications, and modern web platforms that help businesses launch and scale globally.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 items-start"
+            className="flex flex-col sm:flex-row gap-4 items-start mb-4"
           >
-            <Button size="lg" className="button-gradient" asChild>
-              <a href="https://cal.com/your-company" target="_blank" rel="noopener noreferrer">
-                Book a Meeting
-              </a>
+            <Button size="lg" className="button-gradient" onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) {
+                const yOffset = -80;
+                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            }}>
+              Start Your Project
             </Button>
-            <Button 
-              size="lg" 
-              variant="link" 
+            <Button
+              size="lg"
+              variant="link"
               className="text-white"
               onClick={() => {
                 const element = document.getElementById('our-work');
@@ -138,19 +142,59 @@ const Index = () => {
                 }
               }}
             >
-              Explore Our Work <ArrowRight className="ml-2 w-4 h-4" />
+              View Our Work <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="text-xs text-gray-500 mb-12"
+          >
+            Trusted by startups and engineering teams worldwide
+          </motion.p>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="flex justify-center mx-auto max-w-5xl mt-20"
+          className="w-full border-y border-white/5 py-8 mb-20"
+        >
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-xs md:text-sm font-medium tracking-widest text-gray-400 uppercase">
+            <span>Built for production</span>
+            <span className="text-primary/50">•</span>
+            <span>Scalable architecture</span>
+            <span className="text-primary/50">•</span>
+            <span>AI-powered systems</span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex justify-center mx-auto max-w-5xl"
         >
           <CommitsGrid text="ORBITO" />
         </motion.div>
+
+        {/* Impact / Stats Strip */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/5 pt-12">
+          <div className="text-center">
+            <p className="text-2xl font-bold text-white mb-1">100K+</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">concurrent users handled</p>
+          </div>
+          <div className="text-center">
+            <p className="text-2xl font-bold text-white mb-1">Production-ready</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">systems</p>
+          </div>
+          <div className="text-center">
+            <p className="text-2xl font-bold text-white mb-1">AI-powered</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">platforms</p>
+          </div>
+        </div>
       </motion.section>
 
       {/* Tech Stack Carousel */}

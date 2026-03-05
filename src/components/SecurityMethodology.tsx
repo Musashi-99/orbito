@@ -46,17 +46,16 @@ const SecurityMethodology = () => {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-normal mb-6 tracking-tight">
-            Built for{" "}
-            <span className="text-gradient font-medium">Production</span>
+          <h2 className="section-heading mb-6">
+            Built for <span className="heading-accent">Production</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Building with Electron or spinning up a CRUD app is easy — any AI can do that. 
-            But who handles the thundering herd at 3 AM? Who prevents the cache stampede 
+            Building with Electron or spinning up a CRUD app is easy — any AI can do that.
+            But who handles the thundering herd at 3 AM? Who prevents the cache stampede
             during your product launch? Who finds the auth bypass before a bad actor does?
           </p>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mt-4">
-            <span className="text-foreground font-medium">We do this in v0</span> — so things never go out of hand. 
+            <span className="text-foreground font-medium">We do this in v0</span> — so things never go out of hand.
             Our solutions protect your wallet, your scale, and your speed.
           </p>
         </motion.div>

@@ -35,10 +35,9 @@ const WhyGlobalTeamsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-5xl md:text-6xl font-normal mb-6 tracking-tight text-left"
+          className="section-heading mb-6"
         >
-          Why Global Teams Choose{" "}
-          <span className="text-gradient font-medium">Orbito</span>
+          Why Global Teams Choose <span className="heading-accent">ORBITO</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +60,7 @@ const WhyGlobalTeamsSection = () => {
             transition={{ delay: index * 0.1, duration: 0.5 }}
             className={card.isPrimary ? "lg:scale-105 lg:-my-4 z-10" : ""}
           >
-            <SpotlightCard 
+            <SpotlightCard
               className={`h-full ${card.isPrimary ? "border-primary/30" : ""}`}
             >
               <div className={`p-8 ${card.isPrimary ? "py-10" : ""}`}>
@@ -83,8 +82,8 @@ const WhyGlobalTeamsSection = () => {
                 {/* Highlights */}
                 <ul className="space-y-2">
                   {card.highlights.map((highlight) => (
-                    <li 
-                      key={highlight} 
+                    <li
+                      key={highlight}
                       className="flex items-center gap-2 text-sm text-muted-foreground"
                     >
                       <span className={`w-1.5 h-1.5 rounded-full ${card.isPrimary ? "bg-primary" : "bg-muted-foreground/50"}`} />

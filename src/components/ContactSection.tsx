@@ -14,9 +14,8 @@ const ContactSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-normal mb-6 tracking-tight">
-            Start Your{" "}
-            <span className="text-gradient font-medium">Project</span>
+          <h2 className="section-heading mb-6">
+            Start Your <span className="heading-accent">Project</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
             Ready to start your project? Let's discuss your vision and bring it to life.

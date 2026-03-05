@@ -52,12 +52,11 @@ const Gallery6 = ({
       <div className="container px-4">
         <div className="mb-12 flex flex-col justify-between md:flex-row md:items-end">
           <div>
-            <h2 className="text-5xl md:text-6xl font-normal mb-4 tracking-tight text-left">
-              Our{" "}
-              <span className="text-gradient font-medium">Work</span>
+            <h2 className="section-heading mb-6">
+              Our <span className="heading-accent">Work</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground text-left max-w-2xl">
-              Real projects, real impact. See how we help startups and enterprises ship production-grade systems.
+              Production-ready systems built for real businesses. Explore how ORBITO helps startups and companies launch scalable products and AI-powered platforms.
             </p>
           </div>
           <div className="mt-8 flex shrink-0 items-center justify-start gap-2 md:mt-0">

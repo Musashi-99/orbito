@@ -17,13 +17,16 @@ const TechStackCarousel = () => {
 
   return (
     <div className="w-full overflow-hidden bg-[#050505] py-16 mt-20">
-      <div className="container px-4 mb-10">
+      <div className="container px-4 mb-4">
+        <p className="text-xs text-gray-400 text-center mb-4">
+          Production-grade technologies we use to build scalable digital products
+        </p>
         <p className="text-sm text-gray-500 uppercase tracking-widest text-center">
           Our Core Tech Stack
         </p>
       </div>
-      
-      <motion.div 
+
+      <motion.div
         className="flex items-center"
         initial={{ opacity: 0, x: "0%" }}
         animate={{
@@ -50,7 +53,7 @@ const TechStackCarousel = () => {
             key={`tech-${index}`}
             className="flex flex-col items-center gap-3 group cursor-pointer"
             initial={{ opacity: 0.5 }}
-            whileHover={{ 
+            whileHover={{
               opacity: 1,
               transition: { duration: 0.2 }
             }}

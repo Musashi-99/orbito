@@ -53,7 +53,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
+
       <main className="pt-32 pb-20">
         <div className="container px-4">
           {/* Hero Section */}
@@ -67,7 +67,7 @@ const About = () => {
               About Orbito
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We are a global freelancer team of experienced developers building full-stack applications, 
+              We are a global freelancer team of experienced developers building full-stack applications,
               powerful AI solutions, and high-performance backend systems for ambitious clients worldwide.
             </p>
           </motion.div>
@@ -79,11 +79,11 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="glass glass-hover rounded-xl p-8 md:p-12 mb-20 max-w-5xl mx-auto"
           >
-            <h2 className="text-3xl font-bold mb-6 text-center">Our Mission</h2>
+            <h2 className="section-heading mb-6 text-center">Our <span className="heading-accent">Mission</span></h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              At Orbito, we bridge the gap between ambitious ideas and scalable reality. Our mission is to 
-              empower businesses with cutting-edge technology solutions that drive growth, enhance user experiences, 
-              and stand the test of scale. We believe in building not just software, but digital foundations that 
+              At ORBITO, we bridge the gap between ambitious ideas and scalable reality. Our mission is to
+              empower businesses with cutting-edge technology solutions that drive growth, enhance user experiences,
+              and stand the test of scale. We believe in building not just software, but digital foundations that
               businesses can rely on as they grow from startup to enterprise.
             </p>
           </motion.div>
@@ -95,7 +95,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-12 text-center">Our Core Values</h2>
+            <h2 className="section-heading mb-12 text-center">Our Core <span className="heading-accent">Values</span></h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <motion.div
@@ -122,9 +122,9 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-4 text-center">Our Developer Team</h2>
+            <h2 className="section-heading mb-6 text-center">Our Developer <span className="heading-accent">Team</span></h2>
             <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
-              Our team consists of specialized developers, each bringing deep expertise in their respective domains. 
+              Our team consists of specialized developers, each bringing deep expertise in their respective domains.
               Together, we form a cohesive unit capable of tackling any technical challenge.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -153,12 +153,12 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="glass glass-hover rounded-xl p-8 md:p-12 max-w-5xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mb-6">Why Work With Orbito?</h2>
+            <h2 className="section-heading mb-6">Why Work With <span className="heading-accent">ORBITO?</span></h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">Global Expertise</h3>
                 <p className="text-muted-foreground">
-                  Access to world-class talent without geographical constraints. We operate across time zones 
+                  Access to world-class talent without geographical constraints. We operate across time zones
                   to ensure your project never sleeps.
                 </p>
               </div>
