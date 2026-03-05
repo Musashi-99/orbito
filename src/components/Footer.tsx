@@ -15,7 +15,10 @@ const Footer = () => {
         <div className="glass glass-hover rounded-xl p-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <h3 className="font-medium text-lg tracking-wider">ORBITO</h3>
+              <div className="flex items-center gap-2">
+                <img src="/logo.png" alt="Orbito Logo" className="h-8 w-auto" />
+                <h3 className="font-medium text-lg tracking-wider">ORBITO</h3>
+              </div>
               <p className="text-sm text-muted-foreground">
                 Building Scalable Systems for the Future
               </p>

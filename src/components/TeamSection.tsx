@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { SpotlightCard } from "./ui/spotlight-card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Github, Linkedin } from "lucide-react";
+import { Button } from "./ui/button";
 
 const teamMembers = [
   {
@@ -11,7 +13,11 @@ const teamMembers = [
     description: "With years of experience in building production-ready systems, Sourav combines precision and innovation to design applications that are robust, secure, and future-ready. He's the architect behind our large-scale AI and SaaS projects.",
     quote: "I believe in building systems that don't just work today — they scale for tomorrow.",
     avatar: "SA",
-    image: "https://avatars.githubusercontent.com/u/1234567?v=4"
+    image: "https://avatars.githubusercontent.com/u/1234567?v=4",
+    socials: {
+      github: "https://github.com/b33lz3bubTH/",
+      linkedin: "https://www.linkedin.com/in/sourav-ahmed-dev/"
+    }
   },
   {
     name: "Ayush Jha",
@@ -31,7 +37,11 @@ const teamMembers = [
     description: "As the youngest member of the team, Krrish brings energy, fresh ideas, and the latest coding practices. With a year of real-world experience, he supports both frontend and backend tasks, ensuring projects move fast without sacrificing quality.",
     quote: "I'm passionate about building interfaces and experiences that feel simple, yet powerful.",
     avatar: "KK",
-    image: "https://avatars.githubusercontent.com/u/3456789?v=4"
+    image: "https://avatars.githubusercontent.com/u/3456789?v=4",
+    socials: {
+      github: "https://github.com/Musashi-99",
+      linkedin: "https://www.linkedin.com/in/krrishbuilds/"
+    }
   }
 ];
 
@@ -103,6 +113,25 @@ const TeamSection = () => {
                   <div className="pt-4 border-t border-white/10">
                     <p className="text-sm italic text-primary">💡 "{member.quote}"</p>
                   </div>
+
+                  {member.socials && (
+                    <div className="flex gap-3 pt-4">
+                      {member.socials.github && (
+                        <Button variant="outline" size="icon" asChild className="h-9 w-9 rounded-full border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
+                          <a href={member.socials.github} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s GitHub`}>
+                            <Github className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {member.socials.linkedin && (
+                        <Button variant="outline" size="icon" asChild className="h-9 w-9 rounded-full border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
+                          <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s LinkedIn`}>
+                            <Linkedin className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </SpotlightCard>

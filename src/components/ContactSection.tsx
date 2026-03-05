@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactCard } from "@/components/ui/contact-card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import ContactForm from "./ContactForm";
 
 const ContactSection = () => {
   return (
@@ -57,42 +54,7 @@ const ContactSection = () => {
               }
             ]}
           >
-            <form className="w-full space-y-4">
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Name</Label>
-                <Input 
-                  type="text" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  placeholder="Your name"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Email</Label>
-                <Input 
-                  type="email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Phone</Label>
-                <Input 
-                  type="tel" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  placeholder="Your phone number"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Message</Label>
-                <Textarea 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 min-h-[100px]"
-                  placeholder="Tell us about your project..."
-                />
-              </div>
-              <Button className="w-full button-gradient" type="button">
-                Submit
-              </Button>
-            </form>
+            <ContactForm />
           </ContactCard>
         </motion.div>
       </div>
