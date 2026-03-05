@@ -73,16 +73,30 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="relative flex flex-col antialiased">
-          <div className="relative flex overflow-hidden py-4">
+        <div className="relative flex flex-col gap-8 antialiased">
+          {/* Row 1 */}
+          <div className="relative flex overflow-hidden">
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={`${index}-1`} testimonial={testimonial} />
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <TestimonialCard key={`r1-${index}-1`} testimonial={testimonial} />
               ))}
             </div>
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={`${index}-2`} testimonial={testimonial} />
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <TestimonialCard key={`r1-${index}-2`} testimonial={testimonial} />
+              ))}
+            </div>
+          </div>
+          {/* Row 2 */}
+          <div className="relative flex overflow-hidden">
+            <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8 [animation-direction:reverse]">
+              {testimonials.slice(3).map((testimonial, index) => (
+                <TestimonialCard key={`r2-${index}-1`} testimonial={testimonial} />
+              ))}
+            </div>
+            <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8 [animation-direction:reverse]">
+              {testimonials.slice(3).map((testimonial, index) => (
+                <TestimonialCard key={`r2-${index}-2`} testimonial={testimonial} />
               ))}
             </div>
           </div>
