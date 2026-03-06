@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { SpotlightCard } from "./ui/spotlight-card";
 import { Badge } from "./ui/badge";
+import { ArrowRight } from "lucide-react";
 
 const projects = [
   {
     title: "WhatsApp E-Commerce Platform",
+    slug: "whatsapp-ecommerce-platform",
     description: "Built a complete e-commerce system inside WhatsApp, enabling customers to browse, order, and pay directly through chat.",
     features: [
       "AI-driven product search & recommendations",
@@ -93,7 +96,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.5 }}
-          className="text-lg md:text-xl text-gray-400 text-left"
+          className="text-lg md:text-xl text-muted-foreground text-left"
         >
           Production-ready systems we've built and shipped — showcasing our expertise in full-stack development, AI integration, and scalable architecture.
         </motion.p>
@@ -114,16 +117,16 @@ const ProjectsSection = () => {
             >
               <div className="p-8">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-medium text-white">{project.title}</h3>
+                  <h3 className="text-xl font-medium text-foreground">{project.title}</h3>
                   <ArrowRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                 </div>
-                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
 
                 <div className="mb-6">
                   <h4 className="text-sm font-medium text-primary mb-3">Key Features:</h4>
                   <ul className="space-y-2">
                     {project.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm text-gray-400 flex items-start">
+                      <li key={idx} className="text-sm text-muted-foreground flex items-start">
                         <span className="text-primary mr-2">•</span>
                         {feature}
                       </li>
@@ -135,7 +138,7 @@ const ProjectsSection = () => {
                   <h4 className="text-sm font-medium text-primary mb-3">Tech Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech, idx) => (
-                      <Badge key={idx} variant="secondary" className="text-xs bg-white/10 text-gray-300 border-white/20">
+                      <Badge key={idx} variant="secondary" className="text-xs">
                         {tech}
                       </Badge>
                     ))}

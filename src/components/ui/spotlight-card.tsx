@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
 interface SpotlightCardProps {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-export const SpotlightCard = ({ children, className = "" }: SpotlightCardProps) => {
+export const SpotlightCard = ({ children, className = "", onClick }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
