@@ -1,153 +1,170 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { SpotlightCard } from "./ui/spotlight-card";
-import { Badge } from "./ui/badge";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
-const projects = [
+const products = [
   {
     title: "WhatsApp E-Commerce Platform",
     slug: "whatsapp-ecommerce-platform",
-    description: "Built a complete e-commerce system inside WhatsApp, enabling customers to browse, order, and pay directly through chat.",
-    features: [
-      "AI-driven product search & recommendations",
-      "Order placement & address management",
-      "Real-time updates via WhatsApp API",
-      "Smooth GSAP animations for frontend demo"
-    ],
-    techStack: ["Python", "FastAPI", "WhatsApp API", "Custom NLP Models", "GSAP"]
+    summary: "Built a complete e-commerce system inside WhatsApp — AI-driven search, order management, and payments via chat.",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
   },
   {
     title: "Multi-Tenant SaaS E-Commerce Platform",
     slug: "multi-tenant-saas-platform",
-    description: "An affordable Shopify alternative for small businesses, designed with scalability and multi-tenancy.",
-    features: [
-      "Multi-tenant architecture",
-      "Real-time customer chat support (WebSockets)",
-      "SSE notifications for shop owners",
-      "Clerk authentication system"
-    ],
-    techStack: ["Node.js", "FastAPI", "Clerk", "WebSockets", "SSE", "MongoDB"]
+    summary: "An affordable Shopify alternative for small businesses, designed with scalability and multi-tenancy.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
     title: "AI-Powered Semantic Search Engine",
     slug: "ai-semantic-search-engine",
-    description: "Context-aware search engine similar to Algolia, but fully customizable for business workflows.",
-    features: [
-      "NLP-based semantic search",
-      "Scheduler-based eventual updates",
-      "Low-dependency, backend-agnostic integration"
-    ],
-    techStack: ["Python", "Custom NLP", "Redis", "PostgreSQL", "Async Programming"]
+    summary: "Context-aware search engine similar to Algolia, but fully customizable for business workflows.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
   },
   {
     title: "Enterprise Real-Time Dashboard",
     slug: "realtime-analytics-dashboard",
-    description: "A scalable analytics dashboard that streams and visualizes live data for enterprises.",
-    features: [
-      "Kafka-driven real-time data ingestion",
-      "WebSocket-based live visualizations",
-      "Modular, multi-role dashboard access"
-    ],
-    techStack: ["React", "Node.js", "Kafka", "Redis", "WebSockets"]
+    summary: "A scalable analytics dashboard that streams and visualizes live data for enterprises.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
   {
     title: "AI-Powered Call Review System",
     slug: "ai-call-review-system",
-    description: "Automated system for analyzing inbound calls for quality and sentiment, helping enterprises improve customer support.",
-    features: [
-      "Real-time streaming of calls via Kafka",
-      "Transcription with Whisper ASR",
-      "Sentiment analysis with fine-tuned LLMs",
-      "Multi-tenant system design for enterprises"
-    ],
-    techStack: ["Python", "Whisper ASR", "LLMs", "Kafka", "MongoDB"]
+    summary: "Automated system for analyzing inbound calls for quality and sentiment, helping enterprises improve customer support.",
+    image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=800&q=80",
   },
   {
     title: "Custom Admin Dashboards & Tools",
     slug: "custom-admin-dashboards",
-    description: "Advanced admin dashboards for startups and enterprises, tailored to their workflows.",
-    features: [
-      "Role-based access & authentication",
-      "Real-time performance tracking",
-      "Custom integrations (API-first approach)"
-    ],
-    techStack: ["React", "TypeScript", "FastAPI", "Clerk"]
-  }
+    summary: "Advanced admin dashboards for startups and enterprises, tailored to their workflows.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+  },
+  {
+    title: "ReelBox — Instagram Reel Clone",
+    slug: "instagram-reel-clone",
+    summary: "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+  },
 ];
 
 const ProjectsSection = () => {
-  const navigate = useNavigate();
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+    const updateSelection = () => {
+      setCanScrollPrev(carouselApi.canScrollPrev());
+      setCanScrollNext(carouselApi.canScrollNext());
+    };
+    updateSelection();
+    carouselApi.on("select", updateSelection);
+    return () => {
+      carouselApi.off("select", updateSelection);
+    };
+  }, [carouselApi]);
 
   return (
-    <section className="container px-4 py-24 bg-black">
-      <div className="max-w-2xl mb-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="section-heading mb-6"
-        >
-          Our <span className="heading-accent">Products</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="text-lg md:text-xl text-muted-foreground text-left"
-        >
-          Production-ready systems we've built and shipped — showcasing our expertise in full-stack development, AI integration, and scalable architecture.
-        </motion.p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-          >
-            <SpotlightCard
-              className="h-full cursor-pointer group"
-              onClick={() => navigate(`/blog/${project.slug}`)}
+    <section className="py-24">
+      <div className="container px-4">
+        <div className="mb-12 flex flex-col justify-between md:flex-row md:items-end">
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="section-heading mb-6"
             >
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-medium text-foreground">{project.title}</h3>
-                  <ArrowRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                </div>
-                <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
-
-                <div className="mb-6">
-                  <h4 className="text-sm font-medium text-primary mb-3">Key Features:</h4>
-                  <ul className="space-y-2">
-                    {project.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                        <span className="text-primary mr-2">•</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-primary mb-3">Tech Stack:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, idx) => (
-                      <Badge key={idx} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
+              Our <span className="heading-accent">Products</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-lg md:text-xl text-muted-foreground text-left max-w-2xl"
+            >
+              Production-ready systems we've built and shipped — showcasing our expertise in full-stack development, AI integration, and scalable architecture.
+            </motion.p>
+          </div>
+          <div className="mt-8 flex shrink-0 items-center justify-start gap-2 md:mt-0">
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => carouselApi?.scrollPrev()}
+              disabled={!canScrollPrev}
+              className="disabled:pointer-events-auto rounded-full border-border hover:bg-accent"
+            >
+              <ArrowLeft className="size-5" />
+            </Button>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => carouselApi?.scrollNext()}
+              disabled={!canScrollNext}
+              className="disabled:pointer-events-auto rounded-full border-border hover:bg-accent"
+            >
+              <ArrowRight className="size-5" />
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className="w-full">
+        <Carousel
+          setApi={setCarouselApi}
+          opts={{
+            breakpoints: {
+              "(max-width: 768px)": { dragFree: true },
+            },
+          }}
+        >
+          <CarouselContent className="ml-[calc(theme(container.padding)-20px)] mr-[calc(theme(container.padding))] 2xl:ml-[calc(50vw-700px+theme(container.padding)-20px)] 2xl:mr-[calc(50vw-700px+theme(container.padding))]">
+            {products.map((product) => (
+              <CarouselItem
+                key={product.slug}
+                className="pl-[20px] md:max-w-[452px]"
+              >
+                <a
+                  href={`/blog/${product.slug}`}
+                  className="group flex flex-col justify-between rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(74,222,128,0.1)]"
+                >
+                  <div>
+                    <div className="flex aspect-[3/2] overflow-hidden">
+                      <div className="flex-1 transition-all duration-300">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="size-full object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </SpotlightCard>
-          </motion.div>
-        ))}
+                  <div className="p-6">
+                    <h3 className="mb-2 text-lg font-semibold text-foreground md:text-xl">
+                      {product.title}
+                    </h3>
+                    <p className="mb-4 text-sm text-muted-foreground line-clamp-3">
+                      {product.summary}
+                    </p>
+                    <span className="flex items-center text-sm font-medium text-primary">
+                      Read more{" "}
+                      <ArrowUpRight className="ml-1 size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </div>
+                </a>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
