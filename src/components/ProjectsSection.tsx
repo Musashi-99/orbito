@@ -50,6 +50,7 @@ const projects = [
   },
   {
     title: "AI-Powered Call Review System",
+    slug: "ai-call-review-system",
     description: "Automated system for analyzing inbound calls for quality and sentiment, helping enterprises improve customer support.",
     features: [
       "Real-time streaming of calls via Kafka",
