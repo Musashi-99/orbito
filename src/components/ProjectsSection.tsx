@@ -28,6 +28,7 @@ const projects = [
   },
   {
     title: "AI-Powered Semantic Search Engine",
+    slug: "ai-semantic-search-engine",
     description: "Context-aware search engine similar to Algolia, but fully customizable for business workflows.",
     features: [
       "NLP-based semantic search",
