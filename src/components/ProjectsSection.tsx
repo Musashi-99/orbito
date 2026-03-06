@@ -62,6 +62,7 @@ const projects = [
   },
   {
     title: "Custom Admin Dashboards & Tools",
+    slug: "custom-admin-dashboards",
     description: "Advanced admin dashboards for startups and enterprises, tailored to their workflows.",
     features: [
       "Role-based access & authentication",
