@@ -13,7 +13,7 @@ const teamMembers = [
     description: "With years of experience in building production-ready systems, Sourav combines precision and innovation to design applications that are robust, secure, and future-ready. He's the architect behind our large-scale AI and SaaS projects.",
     quote: "I believe in building systems that don't just work today — they scale for tomorrow.",
     avatar: "SA",
-    image: "https://avatars.githubusercontent.com/u/1234567?v=4",
+    image: "/sourav.jpg",
     socials: {
       github: "https://github.com/b33lz3bubTH/",
       linkedin: "https://www.linkedin.com/in/sourav-ahmed-dev/"
@@ -37,7 +37,7 @@ const teamMembers = [
     description: "As the youngest member of the team, Krrish brings energy, fresh ideas, and the latest coding practices. With a year of real-world experience, he supports both frontend and backend tasks, ensuring projects move fast without sacrificing quality.",
     quote: "I'm passionate about building interfaces and experiences that feel simple, yet powerful.",
     avatar: "KK",
-    image: "https://avatars.githubusercontent.com/u/3456789?v=4",
+    image: "/krrish.png",
     socials: {
       github: "https://github.com/Musashi-99",
       linkedin: "https://www.linkedin.com/in/krrishbuilds/"

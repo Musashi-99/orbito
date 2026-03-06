@@ -6,22 +6,31 @@ const cards = [
   {
     icon: <Server className="w-8 h-8" />,
     title: "Production-Grade Systems",
-    description: "Battle-tested infrastructure built for reliability. Our systems handle real-world traffic patterns, implement comprehensive error handling, and include monitoring, logging, and graceful degradation from day one.",
-    highlights: ["99.9% uptime SLAs", "Automated CI/CD pipelines", "Zero-downtime deployments"],
+    points: [
+      "Built for real-world traffic and failures",
+      "Observability, logging, and monitoring included",
+      "Zero-downtime deployment pipelines"
+    ],
     isPrimary: false
   },
   {
     icon: <Brain className="w-10 h-10" />,
     title: "AI That Ships to Production",
-    description: "Beyond prototypes and demos — we build AI systems that run in production environments. From LLM orchestration to real-time inference pipelines, our AI implementations are optimized for latency, cost, and scale.",
-    highlights: ["Production-ready LLM integration", "RAG & vector search systems", "Real-time ML inference"],
+    points: [
+      "Production-ready LLM integrations",
+      "RAG pipelines and vector search systems",
+      "Real-time ML inference infrastructure"
+    ],
     isPrimary: true
   },
   {
     icon: <Layers className="w-8 h-8" />,
     title: "Scalable Architecture by Design",
-    description: "Every system we build anticipates growth. Microservices, event-driven patterns, and distributed data strategies ensure your product scales seamlessly from hundreds to millions of users.",
-    highlights: ["Horizontal scaling patterns", "Event-driven microservices", "Database optimization"],
+    points: [
+      "Horizontal scaling patterns",
+      "Event-driven microservices architecture",
+      "Database and caching optimization"
+    ],
     isPrimary: false
   }
 ];
@@ -70,24 +79,19 @@ const WhyGlobalTeamsSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className={`text-xl font-medium mb-4 ${card.isPrimary ? "text-primary" : "text-foreground"}`}>
+                <h3 className={`text-xl font-bold mb-5 ${card.isPrimary ? "text-primary" : "text-foreground"}`}>
                   {card.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {card.description}
-                </p>
-
-                {/* Highlights */}
-                <ul className="space-y-2">
-                  {card.highlights.map((highlight) => (
+                {/* Bullet Points */}
+                <ul className="space-y-3">
+                  {card.points.map((point) => (
                     <li
-                      key={highlight}
-                      className="flex items-center gap-2 text-sm text-muted-foreground"
+                      key={point}
+                      className="flex items-start gap-2 text-base text-muted-foreground"
                     >
-                      <span className={`w-1.5 h-1.5 rounded-full ${card.isPrimary ? "bg-primary" : "bg-muted-foreground/50"}`} />
-                      {highlight}
+                      <span className={`mt-1 shrink-0 w-1.5 h-1.5 rounded-full ${card.isPrimary ? "bg-primary" : "bg-muted-foreground/50"}`} />
+                      {point}
                     </li>
                   ))}
                 </ul>

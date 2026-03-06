@@ -4,40 +4,73 @@ import { motion } from "framer-motion";
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import { SpotlightCard } from "./ui/spotlight-card";
 
-const testimonials = [
+const row1Testimonials = [
   {
-    name: "Arjun Deshmukh",
-    role: "CTO, NexQueue (Pune)",
-    initials: "AD",
-    content: "We were struggling with our queue management backend — constant timeouts under load. Orbito rebuilt the whole pipeline using Redis and worker threads. Haven't had a single incident in 4 months now."
+    name: "Rahul Mehta",
+    role: "CTO · Logisy Technologies · Pune, India",
+    initials: "RM",
+    content: "We were seeing constant DB bottlenecks at 10K concurrent orders. ORBITO re-architected our write path using async queues and PostgreSQL partitioning. Latency dropped 70%. That's the kind of systems thinking we couldn't find locally."
   },
   {
-    name: "Lukas Schreiber",
-    role: "Co-Founder, Planwell GmbH (Berlin)",
-    initials: "LS",
-    content: "Honestly didn't expect this level of ownership from an external team. They refactored our entire API layer, wrote proper tests, and even caught a critical auth bug we'd missed. Felt like working with senior engineers, not vendors."
+    name: "Fabian Grossmann",
+    role: "Co-Founder & CTO · Mivo GmbH · Hamburg, Germany",
+    initials: "FG",
+    content: "Our microservices were a mess — no circuit breakers, no retry logic, cascading failures every week. ORBITO mapped the failure points and shipped a robust inter-service layer in two sprints. Production has been calm since."
   },
   {
-    name: "Priya Nair",
-    role: "Founder, Klaara Health (Bangalore)",
-    initials: "PN",
-    content: "We needed an ML pipeline that actually worked in production — not just a Jupyter notebook demo. Orbito shipped a working inference service with monitoring and logging in under 3 weeks. Our data team was genuinely impressed."
+    name: "Ananya Krishnan",
+    role: "Founder · Stealth AI · Bangalore, India",
+    initials: "AK",
+    content: "I needed an inference API that could handle burst traffic without breaking. ORBITO built a queued inference pipeline with workers and rate limiting. Went from 30% error rate to zero in production."
   },
   {
-    name: "Tobias Engel",
-    role: "Head of Engineering, Fleetaro (Munich)",
-    initials: "TE",
-    content: "They helped us migrate from a monolith to microservices without any downtime. The architecture docs they left behind are still our single source of truth. Really solid engineering thinking."
+    name: "Jonas Becker",
+    role: "Head of Engineering · Parkpal GmbH · Berlin, Germany",
+    initials: "JB",
+    content: "Our real-time parking system lagged by 8 seconds. ORBITO replaced polling with a WebSocket + Redis pub/sub architecture. Updates now land in under 300ms. Our users noticed the difference immediately."
   },
   {
-    name: "Sneha Kulkarni",
-    role: "Product Lead, Draftbox (Hyderabad)",
-    initials: "SK",
-    content: "What stood out was how fast they understood our product context. Within the first week, they were shipping features that matched our design system perfectly. No hand-holding needed."
+    name: "Vikram Sinha",
+    role: "Product Lead · Cresence · Mumbai, India",
+    initials: "VS",
+    content: "Scaling a multi-tenant SaaS without data isolation issues is genuinely hard. ORBITO designed our tenant-aware schema from scratch and automated provisioning. Onboarding a new enterprise client now takes minutes, not days."
   }
 ];
 
-const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
+const row2Testimonials = [
+  {
+    name: "Neha Agarwal",
+    role: "Founder & CEO · Supplify · Delhi, India",
+    initials: "NA",
+    content: "We were losing orders due to race conditions in our inventory service. ORBITO introduced optimistic locking and idempotency keys. Not a single duplicate order since. The attention to transactional correctness was impressive."
+  },
+  {
+    name: "Moritz Steinbach",
+    role: "CTO · Fieldy UG · Munich, Germany",
+    initials: "MS",
+    content: "We needed Kafka-based event sourcing for our field ops platform but had no internal expertise. ORBITO designed the topic structure, consumer groups, and dead-letter queues from scratch. Our audit trail is now rock solid."
+  },
+  {
+    name: "Rohan Verma",
+    role: "Head of Engineering · Finsight · Hyderabad, India",
+    initials: "RV",
+    content: "Our analytics pipeline was running on cronjobs and crashing nightly. ORBITO rewrote it as a streaming pipeline using Python workers and Redis streams. It now processes 2M events/day without breaking a sweat."
+  },
+  {
+    name: "Lena Hofmann",
+    role: "Co-Founder · Dokuno GmbH · Frankfurt, Germany",
+    initials: "LH",
+    content: "Document processing at scale is deceptively hard. ORBITO built us an async PDF pipeline with OCR, parallel workers, and a retry strategy that degrades gracefully. Our SLA went from 78% to 99.4% within a month."
+  },
+  {
+    name: "Siddharth Rao",
+    role: "CTO · Buildly · Chennai, India",
+    initials: "SR",
+    content: "We had a monolith that nobody wanted to touch. ORBITO did a strangler fig migration over three months — feature by feature, zero downtime. They didn't just write code, they documented every decision. The team can own it now."
+  }
+];
+
+const TestimonialCard = ({ testimonial }: { testimonial: typeof row1Testimonials[0] }) => (
   <SpotlightCard className="w-[400px] shrink-0 bg-black/40">
     <div className="p-8">
       <div className="flex items-center gap-4 mb-6">
@@ -82,12 +115,12 @@ const TestimonialsSection = () => {
           {/* Row 1 */}
           <div className="relative flex overflow-hidden">
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
-              {testimonials.slice(0, 3).map((testimonial, index) => (
+              {row1Testimonials.map((testimonial, index) => (
                 <TestimonialCard key={`r1-${index}-1`} testimonial={testimonial} />
               ))}
             </div>
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
-              {testimonials.slice(0, 3).map((testimonial, index) => (
+              {row1Testimonials.map((testimonial, index) => (
                 <TestimonialCard key={`r1-${index}-2`} testimonial={testimonial} />
               ))}
             </div>
@@ -95,12 +128,12 @@ const TestimonialsSection = () => {
           {/* Row 2 */}
           <div className="relative flex overflow-hidden">
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8 [animation-direction:reverse]">
-              {testimonials.slice(3).map((testimonial, index) => (
+              {row2Testimonials.map((testimonial, index) => (
                 <TestimonialCard key={`r2-${index}-1`} testimonial={testimonial} />
               ))}
             </div>
             <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8 [animation-direction:reverse]">
-              {testimonials.slice(3).map((testimonial, index) => (
+              {row2Testimonials.map((testimonial, index) => (
                 <TestimonialCard key={`r2-${index}-2`} testimonial={testimonial} />
               ))}
             </div>
