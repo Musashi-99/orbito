@@ -16,6 +16,7 @@ const projects = [
   },
   {
     title: "Multi-Tenant SaaS E-Commerce Platform",
+    slug: "multi-tenant-saas-platform",
     description: "An affordable Shopify alternative for small businesses, designed with scalability and multi-tenancy.",
     features: [
       "Multi-tenant architecture",
