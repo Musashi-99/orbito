@@ -39,6 +39,7 @@ export const SpotlightCard = ({ children, className = "", onClick }: SpotlightCa
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       className={cn(
         "relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-lg transition-colors duration-300",
         isHovered && "border-primary/40",
