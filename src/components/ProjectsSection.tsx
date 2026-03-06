@@ -39,6 +39,7 @@ const projects = [
   },
   {
     title: "Enterprise Real-Time Dashboard",
+    slug: "realtime-analytics-dashboard",
     description: "A scalable analytics dashboard that streams and visualizes live data for enterprises.",
     features: [
       "Kafka-driven real-time data ingestion",
