@@ -74,6 +74,8 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="container px-4 py-24 bg-black">
       <div className="max-w-2xl mb-20">
@@ -84,7 +86,7 @@ const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="section-heading mb-6"
         >
-          Featured <span className="heading-accent">Projects</span>
+          Our <span className="heading-accent">Products</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -93,7 +95,7 @@ const ProjectsSection = () => {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-lg md:text-xl text-gray-400 text-left"
         >
-          Explore some of our recent work showcasing our expertise in full-stack development, AI integration, and scalable system architecture.
+          Production-ready systems we've built and shipped — showcasing our expertise in full-stack development, AI integration, and scalable architecture.
         </motion.p>
       </div>
 
@@ -106,9 +108,15 @@ const ProjectsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
-            <SpotlightCard className="h-full">
+            <SpotlightCard
+              className="h-full cursor-pointer group"
+              onClick={() => navigate(`/blog/${project.slug}`)}
+            >
               <div className="p-8">
-                <h3 className="text-xl font-medium mb-4 text-white">{project.title}</h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-medium text-white">{project.title}</h3>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                </div>
                 <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
                 <div className="mb-6">
