@@ -21,25 +21,32 @@ import SecurityMethodology from "@/components/SecurityMethodology";
 
 const ourWorkItems = [
   {
+    id: "work-6",
+    title: "ReelBox — Instagram Reel Clone",
+    summary: "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine, multi uploaders, Instagram like CMS platform, best for people to monitize media contents",
+    url: "/blog/instagram-reel-clone",
+    image: "/products/reelbox.jpg",
+  },
+  {
     id: "work-1",
     title: "WhatsApp E-Commerce Platform",
     summary: "Built a complete e-commerce system inside WhatsApp — AI-driven search, order management, and payments via chat.",
     url: "/blog/whatsapp-ecommerce-platform",
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
-  },
-  {
-    id: "work-2",
-    title: "Multi-Tenant SaaS Platform",
-    summary: "Affordable Shopify alternative for small businesses with real-time chat support and multi-tenant architecture.",
-    url: "/blog/multi-tenant-saas-platform",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: "/products/whatsapp.jpg",
   },
   {
     id: "work-3",
     title: "AI Semantic Search Engine",
     summary: "Context-aware search engine with NLP-based semantic search, fully customizable for any business workflow.",
     url: "/blog/ai-semantic-search-engine",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+    image: "/products/semantic-neural.jpg",
+  },
+  {
+    id: "work-2",
+    title: "Multi-Tenant SaaS Platform",
+    summary: "Affordable Shopify alternative for small businesses with real-time chat support and multi-tenant architecture.",
+    url: "/blog/multi-tenant-saas-platform",
+    image: "/products/multi-saas.jpg",
   },
   {
     id: "work-4",
@@ -53,15 +60,8 @@ const ourWorkItems = [
     title: "AI Call Review System",
     summary: "Automated call analysis with Whisper ASR transcription and sentiment analysis using fine-tuned LLMs.",
     url: "/blog/ai-call-review-system",
-    image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=800&q=80",
-  },
-  {
-    id: "work-6",
-    title: "ReelBox — Instagram Reel Clone",
-    summary: "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine.",
-    url: "/blog/instagram-reel-clone",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-  },
+    image: "/products/auto-call-review.jpg",
+  }
 ];
 
 const Index = () => {
@@ -211,9 +211,9 @@ const Index = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="bg-black">
+      {/* <div className="bg-black">
         <ProjectsSection />
-      </div>
+      </div> */}
 
       {/* Why Global Teams Section */}
       <div className="bg-black">
