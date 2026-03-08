@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     slug: "whatsapp-ecommerce-platform",
     title: "WhatsApp E-Commerce Platform",
     summary: "Built a complete e-commerce system inside WhatsApp — AI-driven search, order management, and payments via chat.",
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
+    image: "/products/whatsapp.jpg",
     date: "2025-11-15",
     readTime: "8 min read",
     category: "AI / E-Commerce",
@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
     slug: "multi-tenant-saas-platform",
     title: "Multi-Tenant SaaS Platform",
     summary: "Affordable Shopify alternative for small businesses with real-time chat support and multi-tenant architecture.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: "/products/multi-saas.jpg",
     date: "2025-10-02",
     readTime: "7 min read",
     category: "SaaS / Full-Stack",
@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-semantic-search-engine",
     title: "AI Semantic Search Engine",
     summary: "Context-aware search engine with NLP-based semantic search, fully customizable for any business workflow.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+    image: "/products/semantic-neural.jpg",
     date: "2025-09-18",
     readTime: "6 min read",
     category: "AI / Search",
@@ -133,7 +133,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-call-review-system",
     title: "AI Call Review System",
     summary: "Automated call analysis with Whisper ASR transcription and sentiment analysis using fine-tuned LLMs.",
-    image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=800&q=80",
+    image: "/products/auto-call-review.jpg",
     date: "2025-07-30",
     readTime: "9 min read",
     category: "AI / Enterprise",
@@ -160,9 +160,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "instagram-reel-clone",
-    title: "ReelBox — Instagram Reel Clone Platform",
-    summary: "A production-ready, white-label short-video platform with infinite scroll, engagement features, and scalable architecture.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    title: "RevHub — Instagram Reel Clone",
+    summary: "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine, multi uploaders, Instagram like CMS platform, best for people to monitize media contents",
+    image: "/products/reelbox.jpg",
     date: "2026-02-20",
     readTime: "10 min read",
     category: "Product / Full-Stack",
@@ -180,12 +180,12 @@ export const blogPosts: BlogPost[] = [
       "White-label deployments for 3 clients within first month"
     ],
     content: [
-      "Short-form video is the most engaging content format on the planet. We built ReelBox so any business can have their own reel platform — without building it from scratch.",
+      "Short-form video is the most engaging content format on the planet. We built RevHub so any business can have their own reel platform — without building it from scratch.",
       "The core experience is the infinite scroll feed. Videos preload 2 ahead and 1 behind the current position. We use intersection observers and predictive loading to ensure zero buffering during normal scrolling. The result feels indistinguishable from Instagram's native app.",
       "On the backend, uploaded videos go through an FFmpeg-based transcoding pipeline that generates multiple resolutions (360p, 720p, 1080p) and adaptive bitrate streams. Videos are served from CDN edge nodes closest to the viewer.",
       "The recommendation engine uses a hybrid approach: collaborative filtering for established users and content-based similarity for cold starts. It runs on Redis sorted sets — no expensive ML infrastructure needed, but engagement metrics rival platforms using heavyweight recommendation systems.",
       "We built thundering herd protection, cache stampede prevention, and hot key distribution into the architecture from v0. When a video goes viral, the system handles it gracefully — no cascading failures, no degraded experience for other users.",
-      "ReelBox is available as a white-label solution. Clients get their own branded app, admin dashboard, content moderation tools, and analytics — all running on infrastructure that costs a fraction of building in-house."
+      "RevHub is available as a white-label solution. Clients get their own branded app, admin dashboard, content moderation tools, and analytics — all running on infrastructure that costs a fraction of building in-house."
     ]
   },
   {

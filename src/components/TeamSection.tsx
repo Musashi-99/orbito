@@ -6,43 +6,63 @@ import { Button } from "./ui/button";
 
 const teamMembers = [
   {
-    name: "Sourav Ahmed",
-    role: "Senior Full-Stack & Backend Architect",
-    title: "Team Lead, System Designer, AI-Driven Solutions Architect",
-    expertise: "Distributed systems, scalable backend architecture, full-stack apps, AI integration",
-    description: "With years of experience in building production-ready systems, Sourav combines precision and innovation to design applications that are robust, secure, and future-ready. He's the architect behind our large-scale AI and SaaS projects.",
-    quote: "I believe in building systems that don't just work today — they scale for tomorrow.",
-    avatar: "SA",
-    image: "/sourav.jpg",
+    name: "Krrish Kumar",
+    role: "Full-Stack & AI/ML Developer",
+    title: "Frontend Developer, Support Engineer",
+    expertise: "React, Python, MongoDB, Generative AI",
+    description:
+      "As the youngest member of the team, Krrish brings energy, fresh ideas, and the latest coding practices. With a year of real-world experience, he supports both frontend and backend tasks, ensuring projects move fast without sacrificing quality.",
+    quote:
+      "I'm passionate about building interfaces and experiences that feel simple, yet powerful.",
+    avatar: "KK",
+    image: "/krrish.png",
     socials: {
-      github: "https://github.com/b33lz3bubTH/",
-      linkedin: "https://www.linkedin.com/in/sourav-ahmed-dev/"
-    }
+      github: "https://github.com/Musashi-99",
+      linkedin: "https://www.linkedin.com/in/krrishbuilds/",
+    },
+  },
+  {
+    name: "Gaurab Das",
+    role: "Growth & Business Strategy",
+    title: "Head of Sales, SEO Guru",
+    expertise: "SEO Architecture, Lead Gen, Market Expansion",
+    description:
+      "Gaurab is the engine behind our market presence. By blending deep SEO technicality with aggressive business development, he ensures our solutions don't just work—they get discovered. He specializes in turning complex technical value into market-leading growth strategies.",
+    quote:
+      "Visibility is the first step to utility; if the world can't find your solution, it doesn't exist.",
+    avatar: "GD",
+    image: "https://avatars.githubusercontent.com/u/2345678?v=5",
+    socials: {},
   },
   {
     name: "Ayush Jha",
     role: "AI & Backend Specialist",
     title: "Machine Learning Engineer, Backend Developer",
     expertise: "Generative AI, Python development, automation, NLP systems",
-    description: "Ayush bridges the gap between traditional software development and the future of AI. He specializes in fine-tuned AI models, intelligent automation, and backend workflows that drive smarter products for our clients.",
-    quote: "For me, AI isn't just a tool — it's a way to reimagine how businesses and users interact with technology.",
+    description:
+      "Ayush bridges the gap between traditional software development and the future of AI. He specializes in fine-tuned AI models, intelligent automation, and backend workflows that drive smarter products for our clients.",
+    quote:
+      "For me, AI isn't just a tool — it's a way to reimagine how businesses and users interact with technology.",
     avatar: "AJ",
-    image: "https://avatars.githubusercontent.com/u/2345678?v=4"
+    image: "https://avatars.githubusercontent.com/u/2345678?v=4",
   },
   {
-    name: "Krrish Kumar",
-    role: "Full-Stack & AI Developer (Junior)",
-    title: "Frontend Developer, Support Engineer",
-    expertise: "React, Python, MongoDB, Generative AI",
-    description: "As the youngest member of the team, Krrish brings energy, fresh ideas, and the latest coding practices. With a year of real-world experience, he supports both frontend and backend tasks, ensuring projects move fast without sacrificing quality.",
-    quote: "I'm passionate about building interfaces and experiences that feel simple, yet powerful.",
-    avatar: "KK",
-    image: "/krrish.png",
+    name: "Sourav Ahmed",
+    role: "Senior Full-Stack & Principal Backend Architect",
+    title: "Team Lead, System Designer, AI-Driven Solutions Architect",
+    expertise:
+      "Distributed systems, scalable backend architecture, full-stack apps, AI integration",
+    description:
+      "With years of experience in building production-ready systems, Sourav combines precision and innovation to design applications that are robust, secure, and future-ready. He's the architect behind our large-scale AI and SaaS projects.",
+    quote:
+      "I believe in building systems that don't just work today — they scale for tomorrow.",
+    avatar: "SA",
+    image: "/sourav.jpg",
     socials: {
-      github: "https://github.com/Musashi-99",
-      linkedin: "https://www.linkedin.com/in/krrishbuilds/"
-    }
-  }
+      github: "https://github.com/b33lz3bubTH/",
+      linkedin: "https://www.linkedin.com/in/sourav-ahmed-dev/",
+    },
+  },
 ];
 
 const TeamSection = () => {
@@ -65,7 +85,10 @@ const TeamSection = () => {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-lg md:text-xl text-gray-400 text-left"
         >
-          At Orbito, we're more than just developers — we're builders, problem-solvers, and collaborators. Each member brings unique strengths, ensuring we cover the full spectrum of modern tech development.
+          At Orbito, we're more than just developers — we're builders,
+          problem-solvers, and collaborators. Each member brings unique
+          strengths, ensuring we cover the full spectrum of modern tech
+          development.
         </motion.p>
       </div>
 
@@ -88,8 +111,12 @@ const TeamSection = () => {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h3 className="text-xl font-medium text-white">{member.name}</h3>
-                    <p className="text-primary text-sm font-medium">{member.role}</p>
+                    <h3 className="text-xl font-medium text-white">
+                      {member.name}
+                    </h3>
+                    <p className="text-primary text-sm font-medium">
+                      {member.role}
+                    </p>
                   </div>
                 </div>
 
@@ -105,26 +132,52 @@ const TeamSection = () => {
                   </div>
 
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">🔹 What he brings:</p>
-                    <p className="text-sm text-gray-300 leading-relaxed">{member.description}</p>
+                    <p className="text-xs text-gray-400 mb-1">
+                      🔹 What he brings:
+                    </p>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      {member.description}
+                    </p>
                   </div>
 
                   <div className="pt-4 border-t border-white/10">
-                    <p className="text-sm italic text-primary">💡 "{member.quote}"</p>
+                    <p className="text-sm italic text-primary">
+                      💡 "{member.quote}"
+                    </p>
                   </div>
 
                   {member.socials && (
                     <div className="flex gap-3 pt-4">
                       {member.socials.github && (
-                        <Button variant="outline" size="icon" asChild className="h-9 w-9 rounded-full border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
-                          <a href={member.socials.github} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s GitHub`}>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          asChild
+                          className="h-9 w-9 rounded-full border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all duration-300"
+                        >
+                          <a
+                            href={member.socials.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${member.name}'s GitHub`}
+                          >
                             <Github className="h-4 w-4" />
                           </a>
                         </Button>
                       )}
                       {member.socials.linkedin && (
-                        <Button variant="outline" size="icon" asChild className="h-9 w-9 rounded-full border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
-                          <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s LinkedIn`}>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          asChild
+                          className="h-9 w-9 rounded-full border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/50 transition-all duration-300"
+                        >
+                          <a
+                            href={member.socials.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${member.name}'s LinkedIn`}
+                          >
                             <Linkedin className="h-4 w-4" />
                           </a>
                         </Button>
@@ -146,23 +199,42 @@ const TeamSection = () => {
       >
         <SpotlightCard>
           <div className="p-8 text-center">
-            <h3 className="text-2xl font-medium mb-6 text-white">🌍 Why Our Team Works</h3>
+            <h3 className="text-2xl font-medium mb-6 text-white">
+              🌍 Why Our Team Works
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
-                <h4 className="font-medium text-primary mb-2">Balance of Experience & Fresh Energy</h4>
-                <p className="text-sm text-gray-400">Senior guidance + innovative perspectives</p>
+                <h4 className="font-medium text-primary mb-2">
+                  Balance of Experience & Fresh Energy
+                </h4>
+                <p className="text-sm text-gray-400">
+                  Senior guidance + innovative perspectives
+                </p>
               </div>
               <div className="text-center">
-                <h4 className="font-medium text-primary mb-2">Full-Stack Coverage</h4>
-                <p className="text-sm text-gray-400">From frontend to backend to AI integration</p>
+                <h4 className="font-medium text-primary mb-2">
+                  Full-Stack Coverage
+                </h4>
+                <p className="text-sm text-gray-400">
+                  From frontend to backend to AI integration
+                </p>
               </div>
               <div className="text-center">
-                <h4 className="font-medium text-primary mb-2">Collaborative Approach</h4>
-                <p className="text-sm text-gray-400">We work as one unit, not isolated freelancers</p>
+                <h4 className="font-medium text-primary mb-2">
+                  Collaborative Approach
+                </h4>
+                <p className="text-sm text-gray-400">
+                  We work as one unit, not isolated freelancers
+                </p>
               </div>
               <div className="text-center">
-                <h4 className="font-medium text-primary mb-2">Global Mindset</h4>
-                <p className="text-sm text-gray-400">We adapt to international clients' needs and deliver world-class quality</p>
+                <h4 className="font-medium text-primary mb-2">
+                  Global Mindset
+                </h4>
+                <p className="text-sm text-gray-400">
+                  We adapt to international clients' needs and deliver
+                  world-class quality
+                </p>
               </div>
             </div>
           </div>

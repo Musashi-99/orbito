@@ -1,12 +1,21 @@
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { Heart, MessageCircle, Share2, Music2, Plus, Bookmark } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import {
+  Heart,
+  MessageCircle,
+  Share2,
+  Music2,
+  Plus,
+  Bookmark,
+} from "lucide-react";
 
 const reelData = [
   {
     id: 1,
     username: "orbito.dev",
-    caption: "Building scalable backends that handle 100K+ concurrent users 🚀 #engineering #startup",
+    caption:
+      "Building scalable backends that handle 100K+ concurrent users 🚀 #engineering #startup",
     likes: "12.4K",
     comments: "342",
     shares: "89",
@@ -15,8 +24,9 @@ const reelData = [
   },
   {
     id: 2,
-    username: "reelbox.app",
-    caption: "Infinite scroll, zero buffering. ReelBox makes it feel native ⚡ #reelclone #product",
+    username: "RevHub.app",
+    caption:
+      "Infinite scroll, zero buffering. RevHub makes it feel native ⚡ #reelclone #product",
     likes: "8.7K",
     comments: "215",
     shares: "156",
@@ -26,7 +36,8 @@ const reelData = [
   {
     id: 3,
     username: "orbito.dev",
-    caption: "Hot key distribution, cache stampede protection — built into v0 🔐 #backend #scale",
+    caption:
+      "Hot key distribution, cache stampede protection — built into v0 🔐 #backend #scale",
     likes: "5.2K",
     comments: "128",
     shares: "67",
@@ -35,8 +46,9 @@ const reelData = [
   },
   {
     id: 4,
-    username: "reelbox.app",
-    caption: "White-label your own reel platform. Your brand, our tech 🎬 #saas #video",
+    username: "RevHub.app",
+    caption:
+      "White-label your own reel platform. Your brand, our tech 🎬 #saas #video",
     likes: "15.1K",
     comments: "489",
     shares: "234",
@@ -46,7 +58,8 @@ const reelData = [
   {
     id: 5,
     username: "orbito.dev",
-    caption: "From Kafka to screen in under 200ms. Real-time, for real. 📊 #data #analytics",
+    caption:
+      "From Kafka to screen in under 200ms. Real-time, for real. 📊 #data #analytics",
     likes: "3.8K",
     comments: "97",
     shares: "45",
@@ -55,7 +68,13 @@ const reelData = [
   },
 ];
 
-const ReelCard = ({ reel, isActive }: { reel: typeof reelData[0]; isActive: boolean }) => {
+const ReelCard = ({
+  reel,
+  isActive,
+}: {
+  reel: (typeof reelData)[0];
+  isActive: boolean;
+}) => {
   const [liked, setLiked] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -67,7 +86,9 @@ const ReelCard = ({ reel, isActive }: { reel: typeof reelData[0]; isActive: bool
         {/* Simulated video content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            animate={isActive ? { scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] } : {}}
+            animate={
+              isActive ? { scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] } : {}
+            }
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="w-32 h-32 rounded-full border-2 border-white/20 flex items-center justify-center"
           >
@@ -84,23 +105,39 @@ const ReelCard = ({ reel, isActive }: { reel: typeof reelData[0]; isActive: bool
           <span className="text-[10px] font-bold">O</span>
         </div>
 
-        <button onClick={() => setLiked(!liked)} className="flex flex-col items-center gap-1">
-          <Heart className={`w-7 h-7 ${liked ? 'fill-red-500 text-red-500' : 'text-white'} transition-colors`} />
-          <span className="text-[11px] text-white font-medium">{reel.likes}</span>
+        <button
+          onClick={() => setLiked(!liked)}
+          className="flex flex-col items-center gap-1"
+        >
+          <Heart
+            className={`w-7 h-7 ${liked ? "fill-red-500 text-red-500" : "text-white"} transition-colors`}
+          />
+          <span className="text-[11px] text-white font-medium">
+            {reel.likes}
+          </span>
         </button>
 
         <button className="flex flex-col items-center gap-1">
           <MessageCircle className="w-7 h-7 text-white" />
-          <span className="text-[11px] text-white font-medium">{reel.comments}</span>
+          <span className="text-[11px] text-white font-medium">
+            {reel.comments}
+          </span>
         </button>
 
-        <button onClick={() => setSaved(!saved)} className="flex flex-col items-center gap-1">
-          <Bookmark className={`w-7 h-7 ${saved ? 'fill-white text-white' : 'text-white'} transition-colors`} />
+        <button
+          onClick={() => setSaved(!saved)}
+          className="flex flex-col items-center gap-1"
+        >
+          <Bookmark
+            className={`w-7 h-7 ${saved ? "fill-white text-white" : "text-white"} transition-colors`}
+          />
         </button>
 
         <button className="flex flex-col items-center gap-1">
           <Share2 className="w-7 h-7 text-white" />
-          <span className="text-[11px] text-white font-medium">{reel.shares}</span>
+          <span className="text-[11px] text-white font-medium">
+            {reel.shares}
+          </span>
         </button>
       </div>
 
@@ -110,12 +147,16 @@ const ReelCard = ({ reel, isActive }: { reel: typeof reelData[0]; isActive: bool
           <div className="w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center">
             <span className="text-[10px] font-bold">O</span>
           </div>
-          <span className="text-sm font-semibold text-white">{reel.username}</span>
+          <span className="text-sm font-semibold text-white">
+            {reel.username}
+          </span>
           <button className="ml-2 px-3 py-0.5 border border-white rounded text-[11px] font-semibold text-white hover:bg-white hover:text-black transition-colors">
             Follow
           </button>
         </div>
-        <p className="text-[13px] text-white/90 leading-snug mb-3">{reel.caption}</p>
+        <p className="text-[13px] text-white/90 leading-snug mb-3">
+          {reel.caption}
+        </p>
         <div className="flex items-center gap-2">
           <Music2 className="w-3 h-3 text-white/70" />
           <div className="overflow-hidden">
@@ -184,17 +225,21 @@ const ReelShowcase = () => {
           {/* Left: Info */}
           <div>
             <h2 className="section-heading mb-6">
-              <span className="heading-accent">ReelBox</span>
+              <span className="heading-accent">RevHub</span>
               <br />
               Your Own Reel Platform
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              A production-ready, white-label short-video platform. Infinite scroll
-              that feels native, video transcoding pipeline, recommendation engine,
-              and scalable architecture — all out of the box.
+              A production-ready, white-label short-video platform. Infinite
+              scroll that feels native, video transcoding pipeline,
+              recommendation engine, and scalable architecture — all out of the
+              box.
             </p>
             <ul className="space-y-4 mb-10">
               {[
+                "One Time Fees 1072 usd. No hidden charges. No monthly fees.",
+                "Full source code + tech Transfer",
+                "Cloudflare CDN + R2 Ingtregration for unlimited bandhwidth for media streaming.",
                 "60fps infinite scroll on mid-range devices",
                 "Video preloading with zero buffering",
                 "Built-in thundering herd & cache stampede protection",
@@ -207,9 +252,12 @@ const ReelShowcase = () => {
                 </li>
               ))}
             </ul>
-            <a href="/blog/instagram-reel-clone" className="inline-flex items-center text-primary hover:underline font-medium">
+            <NavLink
+              to="/blog/instagram-reel-clone"
+              className="inline-flex items-center text-primary hover:underline font-medium"
+            >
               Read the full case study →
-            </a>
+            </NavLink>
           </div>
 
           {/* Right: Phone Mockup with Reels */}
@@ -227,7 +275,10 @@ const ReelShowcase = () => {
                   style={{ scrollbarWidth: "none" }}
                 >
                   {[...reelData, ...reelData].map((reel, idx) => (
-                    <div key={`${reel.id}-${idx}`} className="w-full h-full snap-start snap-always shrink-0">
+                    <div
+                      key={`${reel.id}-${idx}`}
+                      className="w-full h-full snap-start snap-always shrink-0"
+                    >
                       <ReelCard reel={reel} isActive={idx === activeIndex} />
                     </div>
                   ))}

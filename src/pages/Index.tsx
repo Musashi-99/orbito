@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Command } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,49 +23,59 @@ import SecurityMethodology from "@/components/SecurityMethodology";
 const ourWorkItems = [
   {
     id: "work-6",
-    title: "ReelBox — Instagram Reel Clone",
-    summary: "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine, multi uploaders, Instagram like CMS platform, best for people to monitize media contents",
-    url: "/blog/instagram-reel-clone",
+    title: "RevHub — Media CMS Platform",
+    summary:
+      "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine, multi uploaders, Instagram like CMS platform, best for people to monitize media contents",
+    url: "/blog/revhub-media-cms-platform",
     image: "/products/reelbox.jpg",
   },
   {
     id: "work-1",
     title: "WhatsApp E-Commerce Platform",
-    summary: "Built a complete e-commerce system inside WhatsApp — AI-driven search, order management, and payments via chat.",
+    summary:
+      "Built a complete e-commerce system inside WhatsApp — AI-driven search, order management, and payments via chat.",
     url: "/blog/whatsapp-ecommerce-platform",
     image: "/products/whatsapp.jpg",
   },
   {
     id: "work-3",
     title: "AI Semantic Search Engine",
-    summary: "Context-aware search engine with NLP-based semantic search, fully customizable for any business workflow.",
+    summary:
+      "Context-aware search engine with NLP-based semantic search, fully customizable for any business workflow.",
     url: "/blog/ai-semantic-search-engine",
     image: "/products/semantic-neural.jpg",
   },
   {
     id: "work-2",
     title: "Multi-Tenant SaaS Platform",
-    summary: "Affordable Shopify alternative for small businesses with real-time chat support and multi-tenant architecture.",
+    summary:
+      "Affordable Shopify alternative for small businesses with real-time chat support and multi-tenant architecture.",
     url: "/blog/multi-tenant-saas-platform",
     image: "/products/multi-saas.jpg",
   },
   {
     id: "work-4",
     title: "Real-Time Analytics Dashboard",
-    summary: "Kafka-driven enterprise dashboard streaming live data with WebSocket-based visualizations.",
+    summary:
+      "Kafka-driven enterprise dashboard streaming live data with WebSocket-based visualizations.",
     url: "/blog/realtime-analytics-dashboard",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
   {
     id: "work-5",
     title: "AI Call Review System",
-    summary: "Automated call analysis with Whisper ASR transcription and sentiment analysis using fine-tuned LLMs.",
+    summary:
+      "Automated call analysis with Whisper ASR transcription and sentiment analysis using fine-tuned LLMs.",
     url: "/blog/ai-call-review-system",
     image: "/products/auto-call-review.jpg",
-  }
+  },
 ];
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-black text-foreground">
       <Navigation />
@@ -77,9 +88,7 @@ const Index = () => {
         className="relative container px-4 pt-40 pb-20"
       >
         {/* Background */}
-        <div
-          className="absolute inset-0 -z-10 bg-[#0A0A0A]"
-        />
+        <div className="absolute inset-0 -z-10 bg-[#0A0A0A]" />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -96,7 +105,7 @@ const Index = () => {
         <div className="max-w-4xl relative z-10">
           <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left italic">
             <span className="text-gray-200">
-              <TextGenerateEffect words="ORBITO — Engineering" />
+              <TextGenerateEffect words="Engineering meets out of the box thinking.." />
             </span>
             <br />
             <span className="text-white font-medium">
@@ -110,7 +119,9 @@ const Index = () => {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl text-left"
           >
-            We design and build production-ready software systems — scalable backends, AI-powered applications, and modern web platforms that help businesses launch and scale globally.
+            We design and build production-ready software systems — scalable
+            backends, AI-powered applications, and modern web platforms that
+            help businesses launch and scale globally.
           </motion.p>
 
           <motion.div
@@ -119,14 +130,21 @@ const Index = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 items-start mb-4"
           >
-            <Button size="lg" className="button-gradient" onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                const yOffset = -80;
-                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-              }
-            }}>
+            <Button
+              size="lg"
+              className="button-gradient"
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  const yOffset = -80;
+                  const y =
+                    element.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
+            >
               Start Your Project
             </Button>
             <Button
@@ -134,11 +152,14 @@ const Index = () => {
               variant="link"
               className="text-white"
               onClick={() => {
-                const element = document.getElementById('our-work');
+                const element = document.getElementById("our-work");
                 if (element) {
                   const yOffset = -80;
-                  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                  window.scrollTo({ top: y, behavior: 'smooth' });
+                  const y =
+                    element.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
+                  window.scrollTo({ top: y, behavior: "smooth" });
                 }
               }}
             >
@@ -162,8 +183,18 @@ const Index = () => {
           transition={{ delay: 0.6 }}
           className="w-full border-y border-white/5 py-8 mb-20"
         >
+          <div className="w-100 mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="flex justify-center mx-auto max-w-5xl"
+            >
+              <CommitsGrid text="ORBITO" />
+            </motion.div>
+          </div>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-xs md:text-sm font-medium tracking-widest text-gray-400 uppercase">
-            <span>Built for production</span>
+            <span>Built for production - 10k+ req/sec</span>
             <span className="text-primary/50">•</span>
             <span>Scalable architecture</span>
             <span className="text-primary/50">•</span>
@@ -171,31 +202,35 @@ const Index = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="flex justify-center mx-auto max-w-5xl"
-        >
-          <CommitsGrid text="ORBITO" />
-        </motion.div>
-
         {/* Impact / Stats Strip */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/5 pt-12">
+        {/* <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/5 pt-12">
           <div className="text-center">
             <p className="text-2xl font-bold text-white mb-1">100K+</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest">concurrent users handled</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">
+              concurrent users handled
+            </p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-white mb-1">Production-ready</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest">systems</p>
+            <p className="text-2xl font-bold text-white mb-1">
+              Production-ready
+            </p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">
+              systems
+            </p>
           </div>
           <div className="text-center">
             <p className="text-2xl font-bold text-white mb-1">AI-powered</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest">platforms</p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">
+              platforms
+            </p>
           </div>
-        </div>
+        </div> */}
       </motion.section>
+
+      {/* RevHub Showcase */}
+      <div className="bg-black">
+        <ReelShowcase />
+      </div>
 
       {/* Tech Stack Carousel */}
       <TechStackCarousel />
@@ -225,11 +260,6 @@ const Index = () => {
         <SecurityMethodology />
       </div>
 
-      {/* ReelBox Showcase */}
-      <div className="bg-black">
-        <ReelShowcase />
-      </div>
-
       {/* Why Choose Section */}
       <div className="bg-black">
         <WhyChooseSection />
@@ -244,7 +274,6 @@ const Index = () => {
       <div className="bg-black">
         <TeamSection />
       </div>
-
 
       {/* Testimonials Section */}
       <div className="bg-black">

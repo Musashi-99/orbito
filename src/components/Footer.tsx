@@ -1,5 +1,6 @@
 import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
+import { NavLink } from "react-router-dom";
 
 const socialLinks = [
   { icon: Twitter, href: "#", label: "Twitter" },
@@ -24,8 +25,18 @@ const Footer = () => {
               </p>
               <div className="flex space-x-2">
                 {socialLinks.map((social) => (
-                  <Button key={social.label} variant="ghost" size="icon" asChild>
-                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                  <Button
+                    key={social.label}
+                    variant="ghost"
+                    size="icon"
+                    asChild
+                  >
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                    >
                       <social.icon className="w-4 h-4" />
                     </a>
                   </Button>
@@ -37,14 +48,12 @@ const Footer = () => {
               <h4 className="font-medium">Services</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <NavLink
+                    to="/services"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Our Services
-                  </a>
-                </li>
-                <li>
-                  <a href="/#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Pricing
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -53,14 +62,20 @@ const Footer = () => {
               <h4 className="font-medium">Company</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <NavLink
+                    to="/about"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     About Us
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <NavLink
+                    to="/contact"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Contact
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -69,14 +84,20 @@ const Footer = () => {
               <h4 className="font-medium">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <NavLink
+                    to="/privacy-policy"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Privacy Policy
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <NavLink
+                    to="/terms-of-service"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Terms of Service
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>

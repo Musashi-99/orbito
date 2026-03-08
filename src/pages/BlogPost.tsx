@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar, Tag } from "lucide-react";
@@ -11,6 +12,10 @@ const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = getBlogPost(slug || "");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!post) {
     return (

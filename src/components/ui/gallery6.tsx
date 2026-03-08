@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { NavLink } from "react-router-dom";
 import {
   Carousel,
   CarouselApi,
@@ -24,10 +25,7 @@ interface Gallery6Props {
   items?: GalleryItem[];
 }
 
-const Gallery6 = ({
-  heading = "Our Work",
-  items = [],
-}: Gallery6Props) => {
+const Gallery6 = ({ heading = "Our Work", items = [] }: Gallery6Props) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -56,7 +54,9 @@ const Gallery6 = ({
               Our <span className="heading-accent">Work</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground text-left max-w-2xl">
-              Production-ready systems built for real businesses. Explore how ORBITO helps startups and companies launch scalable products and AI-powered platforms.
+              Production-ready systems built for real businesses. Explore how
+              ORBITO helps startups and companies launch scalable products and
+              AI-powered platforms.
             </p>
           </div>
           <div className="mt-8 flex shrink-0 items-center justify-start gap-2 md:mt-0">
@@ -96,8 +96,8 @@ const Gallery6 = ({
                 key={item.id}
                 className="pl-[20px] md:max-w-[452px]"
               >
-                <a
-                  href={item.url}
+                <NavLink
+                  to={item.url}
                   className="group flex flex-col justify-between rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(74,222,128,0.1)]"
                 >
                   <div>
@@ -123,7 +123,7 @@ const Gallery6 = ({
                       <ArrowUpRight className="ml-1 size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </div>
-                </a>
+                </NavLink>
               </CarouselItem>
             ))}
           </CarouselContent>
