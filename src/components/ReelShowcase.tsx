@@ -237,12 +237,12 @@ const ReelShowcase = () => {
             </p>
             <ul className="space-y-4 mb-10">
               {[
-                "One Time Fees 1072 usd. No hidden charges. No monthly fees.",
-                "Full source code + tech Transfer",
-                "Cloudflare CDN + R2 Ingtregration for unlimited bandhwidth for media streaming.",
+                "One-time fee: $1,072. No hidden charges and no monthly license.",
+                "Full source code plus complete knowledge transfer.",
+                "Cloudflare CDN + R2 integration for high-bandwidth media streaming.",
                 "60fps infinite scroll on mid-range devices",
                 "Video preloading with zero buffering",
-                "Built-in thundering herd & cache stampede protection",
+                "Built-in thundering herd and cache stampede protection",
                 "White-label ready — your brand, our engine",
                 "100K+ concurrent users on $200/mo infrastructure",
               ].map((feature, idx) => (

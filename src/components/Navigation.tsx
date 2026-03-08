@@ -20,32 +20,11 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    if (sectionId === "testimonials") {
-      const testimonialSection = document.querySelector(".animate-marquee");
-      if (testimonialSection) {
-        const yOffset = -100; // Offset to account for the fixed header
-        const y =
-          testimonialSection.getBoundingClientRect().top +
-          window.pageYOffset +
-          yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    } else if (sectionId === "cta") {
-      const ctaSection = document.querySelector(".button-gradient");
-      if (ctaSection) {
-        const yOffset = -100;
-        const y =
-          ctaSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const yOffset = -80;
-        const y =
-          element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
@@ -59,6 +38,11 @@ const Navigation = () => {
       name: "Our Work",
       href: "#our-work",
       onClick: () => scrollToSection("our-work"),
+    },
+    {
+      name: "Roadmap",
+      href: "#roadmap",
+      onClick: () => scrollToSection("roadmap"),
     },
     {
       name: "Testimonials",
@@ -76,14 +60,16 @@ const Navigation = () => {
       }`}
     >
       <div className="mx-auto h-full px-6">
-        <nav
-          className="flex items-center justify-between h-full cursor-pointer"
-          onClick={() => navigate("/")}
-        >
-          <div className="flex items-center gap-2">
+        <nav className="flex items-center justify-between h-full">
+          <button
+            type="button"
+            className="flex items-center gap-2"
+            onClick={() => navigate("/")}
+            aria-label="Go to homepage"
+          >
             <img src="/logo.png" alt="Orbito Logo" className="h-8 w-auto" />
             <span className="font-bold text-base tracking-wider">ORBITO</span>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">

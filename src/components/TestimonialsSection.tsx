@@ -48,7 +48,7 @@ const row2Testimonials = [
     role: "Founder & CEO · Nrix.ml · Delhi, India",
     initials: "CM",
     content:
-      "We built our whole ML pipeline with ORBITO, that sever 10,000 people daily, it powers non techy people alot for there daily work",
+      "We built our full ML pipeline with ORBITO. It serves 10,000 users daily and powers non-technical teams in their routine workflows.",
   },
   {
     name: "Neha Agarwal",
@@ -118,7 +118,7 @@ const TestimonialCard = ({
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 overflow-hidden bg-black">
+    <section id="testimonials" className="py-20 overflow-hidden bg-black">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

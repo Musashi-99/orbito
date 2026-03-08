@@ -19,6 +19,7 @@ import { CommitsGrid } from "@/components/ui/commits-grid";
 import { Gallery6 } from "@/components/ui/gallery6";
 import ReelShowcase from "@/components/ReelShowcase";
 import SecurityMethodology from "@/components/SecurityMethodology";
+import ExecutionRoadmapSection from "@/components/ExecutionRoadmapSection";
 
 const ourWorkItems = [
   {
@@ -226,6 +227,11 @@ const Index = () => {
           </div>
         </div> */}
       </motion.section>
+
+      {/* Execution Roadmap */}
+      <div className="bg-black">
+        <ExecutionRoadmapSection />
+      </div>
 
       {/* RevHub Showcase */}
       <div className="bg-black">

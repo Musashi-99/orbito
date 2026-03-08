@@ -6,10 +6,10 @@ import { Button } from "./ui/button";
 
 const teamMembers = [
   {
-    name: "Krrish Kumar",
-    role: "Full-Stack & AI/ML Developer",
-    title: "Frontend Developer, Support Engineer",
-    expertise: "React, Python, MongoDB, Generative AI",
+    name: "Krish Kumar",
+    role: "UI/UX and Frontend Engineer",
+    title: "Frontend Lead, Product Experience",
+    expertise: "React, Design Systems, UX Flows, Generative AI",
     description:
       "As the youngest member of the team, Krrish brings energy, fresh ideas, and the latest coding practices. With a year of real-world experience, he supports both frontend and backend tasks, ensuring projects move fast without sacrificing quality.",
     quote:
@@ -22,10 +22,10 @@ const teamMembers = [
     },
   },
   {
-    name: "Gaurab Das",
-    role: "Growth & Business Strategy",
-    title: "Head of Sales, SEO Guru",
-    expertise: "SEO Architecture, Lead Gen, Market Expansion",
+    name: "Gourab Das",
+    role: "Sales & Growth Strategy",
+    title: "Head of Sales, Revenue Operations",
+    expertise: "Lead Generation, Pipeline Strategy, Market Expansion",
     description:
       "Gaurab is the engine behind our market presence. By blending deep SEO technicality with aggressive business development, he ensures our solutions don't just work—they get discovered. He specializes in turning complex technical value into market-leading growth strategies.",
     quote:
@@ -33,18 +33,6 @@ const teamMembers = [
     avatar: "GD",
     image: "https://avatars.githubusercontent.com/u/2345678?v=5",
     socials: {},
-  },
-  {
-    name: "Ayush Jha",
-    role: "AI & Backend Specialist",
-    title: "Machine Learning Engineer, Backend Developer",
-    expertise: "Generative AI, Python development, automation, NLP systems",
-    description:
-      "Ayush bridges the gap between traditional software development and the future of AI. He specializes in fine-tuned AI models, intelligent automation, and backend workflows that drive smarter products for our clients.",
-    quote:
-      "For me, AI isn't just a tool — it's a way to reimagine how businesses and users interact with technology.",
-    avatar: "AJ",
-    image: "https://avatars.githubusercontent.com/u/2345678?v=4",
   },
   {
     name: "Sourav Ahmed",
@@ -122,19 +110,17 @@ const TeamSection = () => {
 
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">🔹 Role:</p>
+                    <p className="text-xs text-gray-400 mb-1">Role</p>
                     <p className="text-sm text-gray-300">{member.title}</p>
                   </div>
 
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">🔹 Expertise:</p>
+                    <p className="text-xs text-gray-400 mb-1">Expertise</p>
                     <p className="text-sm text-gray-300">{member.expertise}</p>
                   </div>
 
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">
-                      🔹 What he brings:
-                    </p>
+                    <p className="text-xs text-gray-400 mb-1">What he brings</p>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       {member.description}
                     </p>
@@ -142,7 +128,7 @@ const TeamSection = () => {
 
                   <div className="pt-4 border-t border-white/10">
                     <p className="text-sm italic text-primary">
-                      💡 "{member.quote}"
+                      "{member.quote}"
                     </p>
                   </div>
 
@@ -200,7 +186,7 @@ const TeamSection = () => {
         <SpotlightCard>
           <div className="p-8 text-center">
             <h3 className="text-2xl font-medium mb-6 text-white">
-              🌍 Why Our Team Works
+              Why Our Team Works
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
