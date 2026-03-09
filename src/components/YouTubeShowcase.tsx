@@ -1,20 +1,24 @@
 import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ThumbsUp,
   ThumbsDown,
   Share2,
-  Download,
-  MoreVertical,
+  MoreHorizontal,
   Search,
   Bell,
-  Cast,
+  Menu,
   Home,
   Play,
   Plus,
   User,
   Library,
+  TrendingUp,
+  Clock,
+  Flame,
+  Music2,
+  Gamepad2,
 } from "lucide-react";
 
 const videoData = [
@@ -22,109 +26,111 @@ const videoData = [
     id: 1,
     channel: "Orbito Dev",
     channelInitial: "O",
-    title: "How We Handle 100K+ Concurrent Users — Backend Architecture Deep Dive",
+    title: "How We Handle 100K+ Concurrent Users — Backend Architecture",
     views: "124K views",
     time: "2 weeks ago",
     duration: "12:34",
-    likes: "8.2K",
-    gradient: "from-slate-900 via-zinc-800 to-neutral-900",
-    thumbnail: "from-violet-600/30 via-purple-900/40 to-indigo-950",
+    thumbnail: "from-violet-600/40 via-purple-900/50 to-indigo-950",
   },
   {
     id: 2,
     channel: "Orbito Dev",
     channelInitial: "O",
-    title: "Building a Multi-Tenant SaaS Platform from Scratch — Full Walkthrough",
+    title: "Building a Multi-Tenant SaaS from Scratch",
     views: "87K views",
     time: "1 month ago",
     duration: "18:42",
-    likes: "5.1K",
-    gradient: "from-slate-900 via-zinc-800 to-neutral-900",
-    thumbnail: "from-emerald-600/30 via-teal-900/40 to-cyan-950",
+    thumbnail: "from-emerald-600/40 via-teal-900/50 to-cyan-950",
   },
   {
     id: 3,
     channel: "Orbito Dev",
     channelInitial: "O",
-    title: "AI-Powered Semantic Search — Better Than Algolia? We Built Our Own",
+    title: "AI Semantic Search — Better Than Algolia?",
     views: "56K views",
     time: "3 weeks ago",
     duration: "15:07",
-    likes: "3.4K",
-    gradient: "from-slate-900 via-zinc-800 to-neutral-900",
-    thumbnail: "from-rose-600/30 via-pink-900/40 to-fuchsia-950",
+    thumbnail: "from-rose-600/40 via-pink-900/50 to-fuchsia-950",
   },
   {
     id: 4,
     channel: "Orbito Dev",
     channelInitial: "O",
-    title: "Real-Time Analytics with Kafka — From Event to Dashboard in 200ms",
+    title: "Real-Time Analytics with Kafka in 200ms",
     views: "42K views",
     time: "5 days ago",
     duration: "21:15",
-    likes: "2.9K",
-    gradient: "from-slate-900 via-zinc-800 to-neutral-900",
-    thumbnail: "from-amber-600/30 via-orange-900/40 to-red-950",
+    thumbnail: "from-amber-600/40 via-orange-900/50 to-red-950",
   },
   {
     id: 5,
     channel: "Orbito Dev",
     channelInitial: "O",
-    title: "WhatsApp E-Commerce Bot — Full System Design & Implementation",
+    title: "WhatsApp E-Commerce Bot — Full System Design",
     views: "93K views",
     time: "2 months ago",
     duration: "24:58",
-    likes: "6.7K",
-    gradient: "from-slate-900 via-zinc-800 to-neutral-900",
-    thumbnail: "from-blue-600/30 via-sky-900/40 to-cyan-950",
+    thumbnail: "from-blue-600/40 via-sky-900/50 to-cyan-950",
   },
+  {
+    id: 6,
+    channel: "Orbito Dev",
+    channelInitial: "O",
+    title: "Video Transcoding Pipeline — FFmpeg at Scale",
+    views: "31K views",
+    time: "1 week ago",
+    duration: "16:22",
+    thumbnail: "from-indigo-600/40 via-blue-900/50 to-slate-950",
+  },
+];
+
+const sidebarItems = [
+  { icon: Home, label: "Home", active: true },
+  { icon: Flame, label: "Trending", active: false },
+  { icon: Library, label: "Library", active: false },
+  { icon: Clock, label: "History", active: false },
 ];
 
 const VideoCard = ({ video, index }: { video: (typeof videoData)[0]; index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.3, delay: index * 0.08 }}
-    className="w-full"
+    transition={{ duration: 0.3, delay: index * 0.06 }}
+    className="cursor-pointer group"
   >
     {/* Thumbnail */}
     <div className={`relative w-full aspect-video bg-gradient-to-br ${video.thumbnail} rounded-lg overflow-hidden`}>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-10 h-10 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm"
-        >
-          <Play className="w-4 h-4 text-white fill-white ml-0.5" />
-        </motion.div>
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="w-8 h-8 rounded-full bg-black/70 flex items-center justify-center">
+          <Play className="w-3.5 h-3.5 text-white fill-white ml-0.5" />
+        </div>
       </div>
-      {/* Duration badge */}
-      <div className="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-[9px] font-medium px-1.5 py-0.5 rounded">
+      <div className="absolute bottom-1 right-1 bg-black/85 text-white text-[7px] font-medium px-1 py-[1px] rounded">
         {video.duration}
       </div>
     </div>
 
-    {/* Video info */}
-    <div className="flex gap-2 mt-2 px-0.5">
-      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center shrink-0 mt-0.5">
-        <span className="text-[9px] font-bold text-white">{video.channelInitial}</span>
+    {/* Info */}
+    <div className="flex gap-1.5 mt-1.5">
+      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center shrink-0 mt-0.5">
+        <span className="text-[6px] font-bold text-white">{video.channelInitial}</span>
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-[11px] font-medium text-white leading-tight line-clamp-2">
+        <p className="text-[8px] font-medium text-white leading-tight line-clamp-2">
           {video.title}
         </p>
-        <p className="text-[9px] text-gray-400 mt-0.5">
-          {video.channel} · {video.views} · {video.time}
+        <p className="text-[6.5px] text-gray-400 mt-0.5">
+          {video.channel}
+        </p>
+        <p className="text-[6.5px] text-gray-400">
+          {video.views} · {video.time}
         </p>
       </div>
-      <MoreVertical className="w-3.5 h-3.5 text-gray-500 shrink-0 mt-0.5" />
     </div>
   </motion.div>
 );
 
 const YouTubeShowcase = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
   return (
     <section className="py-32 bg-black">
       <div className="container px-4">
@@ -135,61 +141,83 @@ const YouTubeShowcase = () => {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
-          {/* Left: Phone Mockup with YouTube */}
+          {/* Left: Desktop Browser Mockup */}
           <div className="flex justify-center order-2 lg:order-1">
             <motion.div
-              whileHover={{ scale: 1.025 }}
+              whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-[280px] h-[580px]"
+              className="relative w-full max-w-[520px]"
             >
-              {/* Red glow behind phone */}
+              {/* Red glow behind browser */}
               <div
-                className="absolute inset-0 rounded-[40px] z-0 pointer-events-none"
+                className="absolute inset-0 rounded-2xl z-0 pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(ellipse at 50% 60%, hsl(0 72% 50% / 0.15) 0%, transparent 70%)",
-                  filter: "blur(18px)",
-                  transform: "scale(1.15)",
+                    "radial-gradient(ellipse at 50% 60%, hsl(0 72% 50% / 0.12) 0%, transparent 70%)",
+                  filter: "blur(24px)",
+                  transform: "scale(1.1)",
                 }}
               />
-              {/* Phone frame */}
+
+              {/* Browser frame */}
               <div
-                className="absolute inset-0 rounded-[40px] border-[3px] border-white/20 bg-[#0f0f0f] overflow-hidden z-10 flex flex-col"
+                className="relative rounded-xl border border-white/15 bg-[#0f0f0f] overflow-hidden z-10"
                 style={{
                   boxShadow:
-                    "0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04), 0 0 40px hsl(0 72% 50% / 0.1)",
+                    "0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04), 0 0 40px hsl(0 72% 50% / 0.08)",
                 }}
               >
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-2xl z-20" />
-
-                {/* YouTube Top Bar */}
-                <div className="pt-8 px-3 pb-2 flex items-center justify-between shrink-0">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
-                      <Play className="w-2.5 h-2.5 text-white fill-white" />
-                    </div>
-                    <span className="text-white text-[11px] font-bold tracking-tight">YouTube</span>
+                {/* Browser title bar */}
+                <div className="bg-[#1a1a1a] px-3 py-2 flex items-center gap-2 border-b border-white/5">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Cast className="w-4 h-4 text-white/70" />
-                    <Bell className="w-4 h-4 text-white/70" />
-                    <Search className="w-4 h-4 text-white/70" />
+                  <div className="flex-1 mx-6">
+                    <div className="bg-[#0f0f0f] rounded-md px-3 py-1 text-[8px] text-gray-500 text-center">
+                      vidstack.app
+                    </div>
+                  </div>
+                </div>
+
+                {/* Top navbar */}
+                <div className="bg-[#0f0f0f] px-3 py-2 flex items-center justify-between border-b border-white/5">
+                  <div className="flex items-center gap-2">
+                    <Menu className="w-3.5 h-3.5 text-white/60" />
+                    <div className="flex items-center gap-1">
+                      <div className="w-4 h-4 bg-red-600 rounded-sm flex items-center justify-center">
+                        <Play className="w-2 h-2 text-white fill-white" />
+                      </div>
+                      <span className="text-white text-[9px] font-bold tracking-tight">VidStack</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center bg-white/5 rounded-full overflow-hidden border border-white/10">
+                    <div className="px-3 py-1">
+                      <span className="text-[7px] text-gray-500">Search</span>
+                    </div>
+                    <div className="bg-white/5 px-2 py-1 border-l border-white/10">
+                      <Search className="w-2.5 h-2.5 text-white/50" />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <Plus className="w-3.5 h-3.5 text-white/60" />
+                    <Bell className="w-3.5 h-3.5 text-white/60" />
                     <div className="w-5 h-5 rounded-full bg-purple-600 flex items-center justify-center">
-                      <span className="text-[8px] text-white font-bold">S</span>
+                      <span className="text-[7px] text-white font-bold">S</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Category chips */}
-                <div className="px-3 pb-2 flex gap-1.5 overflow-hidden shrink-0">
-                  {["All", "Tech", "Backend", "AI", "SaaS"].map((chip, i) => (
+                <div className="px-3 py-1.5 flex gap-1.5 border-b border-white/5 overflow-hidden">
+                  {["All", "Tech", "Backend", "AI", "SaaS", "Live", "Gaming"].map((chip, i) => (
                     <div
                       key={chip}
-                      className={`px-2.5 py-1 rounded-md text-[9px] font-medium whitespace-nowrap shrink-0 ${
+                      className={`px-2 py-0.5 rounded text-[7px] font-medium whitespace-nowrap shrink-0 ${
                         i === 0
                           ? "bg-white text-black"
-                          : "bg-white/10 text-white/80"
+                          : "bg-white/10 text-white/70"
                       }`}
                     >
                       {chip}
@@ -197,54 +225,35 @@ const YouTubeShowcase = () => {
                   ))}
                 </div>
 
-                {/* Scrollable video feed */}
-                <div
-                  ref={scrollRef}
-                  className="flex-1 overflow-y-auto px-3 pb-14 space-y-4"
-                  style={{ scrollbarWidth: "none" }}
-                >
-                  {videoData.map((video, idx) => (
-                    <VideoCard key={video.id} video={video} index={idx} />
-                  ))}
-                </div>
-
-                {/* Bottom navigation bar */}
-                <div className="absolute bottom-0 left-0 right-0 bg-[#0f0f0f] border-t border-white/10 px-2 pb-4 pt-1.5 flex items-center justify-around z-20">
-                  {[
-                    { icon: Home, label: "Home", active: true },
-                    { icon: Play, label: "Shorts", active: false },
-                    { icon: Plus, label: "", active: false, isCreate: true },
-                    { icon: Library, label: "Library", active: false },
-                    { icon: User, label: "You", active: false },
-                  ].map((item, i) => (
-                    <div key={i} className="flex flex-col items-center gap-0.5">
-                      {item.isCreate ? (
-                        <div className="w-8 h-5 rounded-lg bg-white/10 flex items-center justify-center -mt-0.5">
-                          <Plus className="w-4 h-4 text-white" />
-                        </div>
-                      ) : (
-                        <item.icon
-                          className={`w-4 h-4 ${
-                            item.active ? "text-white" : "text-white/50"
-                          }`}
-                          {...(item.active && item.icon === Home ? { fill: "white" } : {})}
-                        />
-                      )}
-                      {item.label && (
-                        <span
-                          className={`text-[8px] ${
-                            item.active ? "text-white" : "text-white/50"
-                          }`}
-                        >
+                {/* Main content area */}
+                <div className="flex" style={{ height: "320px" }}>
+                  {/* Sidebar */}
+                  <div className="w-14 shrink-0 border-r border-white/5 py-2 hidden sm:flex flex-col gap-1">
+                    {sidebarItems.map((item) => (
+                      <div
+                        key={item.label}
+                        className={`flex flex-col items-center gap-0.5 py-1.5 px-1 rounded-lg mx-1 ${
+                          item.active ? "bg-white/10" : "hover:bg-white/5"
+                        }`}
+                      >
+                        <item.icon className={`w-3 h-3 ${item.active ? "text-white" : "text-white/50"}`} />
+                        <span className={`text-[6px] ${item.active ? "text-white" : "text-white/50"}`}>
                           {item.label}
                         </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    ))}
+                  </div>
 
-                {/* Bottom home indicator */}
-                <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/30 rounded-full z-30" />
+                  {/* Video grid */}
+                  <div
+                    className="flex-1 p-2.5 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 gap-x-2.5 gap-y-3 auto-rows-min"
+                    style={{ scrollbarWidth: "none" }}
+                  >
+                    {videoData.map((video, idx) => (
+                      <VideoCard key={video.id} video={video} index={idx} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -274,8 +283,8 @@ const YouTubeShowcase = () => {
                 maxWidth: "26rem",
               }}
             >
-              Your Own Video Platform.
-              <span className="block mt-1">Built to Scale. Ready to Ship.</span>
+              Launch Your Own Video Platform.
+              <span className="block mt-1">Own the Content. Keep the Revenue.</span>
             </h2>
 
             <p
@@ -283,37 +292,40 @@ const YouTubeShowcase = () => {
               style={{ fontSize: "0.9rem", maxWidth: "30rem" }}
             >
               A production-ready, white-label video platform built for founders
-              who want to launch their own{" "}
+              who want to run their own{" "}
               <strong className="text-gray-200 font-semibold">YouTube-style</strong>{" "}
-              video sharing and streaming service without the years of{" "}
-              <strong className="text-gray-200 font-semibold">infrastructure</strong> development.
+              video sharing and streaming service without building the{" "}
+              <strong className="text-gray-200 font-semibold">infrastructure</strong> from scratch.
             </p>
 
             <p
               className="mb-12 leading-[1.95] text-gray-500"
               style={{ fontSize: "0.85rem", maxWidth: "30rem" }}
             >
-              VidStack gives you the complete tech stack to run a video platform —{" "}
-              <strong className="text-gray-300 font-semibold">video transcoding</strong>,
-              adaptive streaming, recommendation engine,{" "}
+              VidStack gives you the complete tech stack — {" "}
+              <strong className="text-gray-300 font-semibold">video transcoding</strong> pipeline,
+              adaptive bitrate streaming, recommendation engine,{" "}
               <strong className="text-gray-300 font-semibold">creator dashboards</strong>,
               comment system, subscription management, and{" "}
               <strong className="text-gray-300 font-semibold">monetization</strong> tools
-              — all pre-built and production-tested.
+              — already built and production-tested. No large engineering team required.
+              No years of development. No platform restrictions.
             </p>
 
             <ul className="space-y-[16px] mb-14">
               {([
+                ["Built for ", "video sharing", " & ", "streaming", " platforms"],
+                ["One-time license", " — no monthly platform fees"],
+                ["Full source code", " with knowledge transfer"],
                 ["YouTube-style", " video feed with ", "recommendation engine"],
                 ["Video transcoding", " + adaptive ", "bitrate streaming"],
-                ["Creator dashboard", " with analytics & upload tools"],
+                ["Creator dashboard", " with analytics & upload management"],
                 ["Comment system", " with moderation & ", "spam detection"],
-                ["Subscription", " & channel ", "membership", " support"],
-                ["Ad integration", " ready (pre-roll, mid-roll, banners)"],
-                ["Full source code", " — white-label, your brand"],
-                ["Scales to ", "1M+ videos", " with CDN integration"],
-                ["Monetization", " built-in: ads, subscriptions, pay-per-view"],
-                ["Mobile-first", " responsive design"],
+                ["Backend", " ready for ", "100K+ users", " concurrent"],
+                ["Monetization", " ready (ads, subscriptions, pay-per-view)"],
+                ["White-label", " platform — your brand, your domain, your rules"],
+                ["CDN integration", " + edge caching architecture"],
+                ["Scales to ", "1M+ videos", " with enterprise-grade infra"],
               ] as const).map((parts, idx) => (
                 <motion.li
                   key={idx}
@@ -360,7 +372,7 @@ const YouTubeShowcase = () => {
                 marginTop: "0.5rem",
               }}
             >
-              Launch your own video platform. Own the audience. Keep the revenue.{" "}
+              Launch your own video platform. Own the audience. Keep 100% of the revenue.{" "}
               <span style={{ filter: "brightness(1.4)" }}>→</span>
             </NavLink>
           </div>
