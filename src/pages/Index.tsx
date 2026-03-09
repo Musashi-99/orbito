@@ -18,6 +18,7 @@ import ContactSection from "@/components/ContactSection";
 import { CommitsGrid } from "@/components/ui/commits-grid";
 import { Gallery6 } from "@/components/ui/gallery6";
 import ReelShowcase from "@/components/ReelShowcase";
+import YouTubeShowcase from "@/components/YouTubeShowcase";
 import SecurityMethodology from "@/components/SecurityMethodology";
 import ExecutionRoadmapSection from "@/components/ExecutionRoadmapSection";
 
@@ -235,6 +236,10 @@ const Index = () => {
 
       <div id="revhub" className="bg-black">
         <ReelShowcase />
+      </div>
+
+      <div id="vidstack" className="bg-black">
+        <YouTubeShowcase />
       </div>
 
       {/* Tech Stack Carousel */}
