@@ -238,6 +238,10 @@ const Index = () => {
         <ReelShowcase />
       </div>
 
+      <div id="vidstack" className="bg-black">
+        <YouTubeShowcase />
+      </div>
+
       {/* Tech Stack Carousel */}
       <TechStackCarousel />
 
