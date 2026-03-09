@@ -24,7 +24,7 @@ const reelData = [
   },
   {
     id: 2,
-    username: "RevHub.app",
+    username: "revhub.app",
     caption:
       "Infinite scroll, zero buffering. RevHub makes it feel native ⚡ #reelclone #product",
     likes: "8.7K",
@@ -46,7 +46,7 @@ const reelData = [
   },
   {
     id: 4,
-    username: "RevHub.app",
+    username: "revhub.app",
     caption:
       "White-label your own reel platform. Your brand, our tech 🎬 #saas #video",
     likes: "15.1K",
@@ -213,7 +213,7 @@ const ReelShowcase = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-black">
+    <section className="py-32 bg-black">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -223,48 +223,163 @@ const ReelShowcase = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
           {/* Left: Info */}
-          <div>
-            <h2 className="section-heading mb-6">
-              <span className="heading-accent">RevHub</span>
-              <br />
-              Your Own Reel Platform
+          <div className="max-w-[520px]">
+
+            {/* RevHub label */}
+            <div
+              className="mb-5 inline-block"
+              style={{
+                fontSize: "3.2rem",
+                fontWeight: 800,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "hsl(142, 80%, 58%)",
+                filter:
+                  "drop-shadow(0 0 8px hsl(142 80% 58% / 0.55)) drop-shadow(0 0 2px hsl(142 80% 58% / 0.4))",
+              }}
+            >
+              RevHub
+            </div>
+
+            {/* Main headline */}
+            <h2
+              className="mb-8 font-extrabold tracking-tight text-white"
+              style={{
+                fontSize: "clamp(1.75rem, 3.5vw, 2.6rem)",
+                lineHeight: 1.13,
+                maxWidth: "26rem",
+              }}
+            >
+              Launch Your Own Adult Video Platform.
+              <span className="block mt-1">Own the Content. Keep the Revenue.</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              A production-ready, white-label short-video platform. Infinite
-              scroll that feels native, video transcoding pipeline,
-              recommendation engine, and scalable architecture — all out of the
-              box.
+
+            {/* Subtitle */}
+            <p
+              className="mb-4 leading-[1.9] text-gray-400"
+              style={{ fontSize: "0.9rem", maxWidth: "30rem" }}
+            >
+              A production-ready, white-label video platform built for founders
+              who want to run their own{" "}
+              <strong className="text-gray-200 font-semibold">NSFW</strong>,{" "}
+              <strong className="text-gray-200 font-semibold">adult</strong>, or premium content website
+              without building the{" "}
+              <strong className="text-gray-200 font-semibold">infrastructure</strong> from scratch.
             </p>
-            <ul className="space-y-4 mb-10">
-              {[
-                "One-time fee: $1,072. No hidden charges and no monthly license.",
-                "Full source code plus complete knowledge transfer.",
-                "Cloudflare CDN + R2 integration for high-bandwidth media streaming.",
-                "60fps infinite scroll on mid-range devices",
-                "Video preloading with zero buffering",
-                "Built-in thundering herd and cache stampede protection",
-                "White-label ready — your brand, our engine",
-                "100K+ concurrent users on $200/mo infrastructure",
-              ].map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-gray-300">
-                  <span className="text-primary mt-1 shrink-0">✓</span>
-                  {feature}
-                </li>
+
+            {/* Body paragraph */}
+            <p
+              className="mb-12 leading-[1.95] text-gray-500"
+              style={{ fontSize: "0.85rem", maxWidth: "30rem" }}
+            >
+              RevHub is built for people who want to host and run their own{" "}
+              <strong className="text-gray-300 font-semibold">adult</strong> or premium video content
+              platform. Instead of depending on third-party sites that take your
+              revenue, restrict content, or control your audience, RevHub gives
+              you the complete{" "}
+              <strong className="text-gray-300 font-semibold">infrastructure</strong> to launch your
+              own branded platform — video transcoding pipeline, infinite scroll
+              feed,{" "}
+              <strong className="text-gray-300 font-semibold">CDN streaming</strong>, caching system,
+              recommendation engine, and scalable{" "}
+              <strong className="text-gray-300 font-semibold">backend</strong> architecture — already
+              built and production-tested. No large engineering team required. No
+              years of development. No platform restrictions.
+            </p>
+
+            {/* Bullet list */}
+            <ul className="space-y-[16px] mb-14">
+              {([
+                ["Built for ", "adult", " / ", "NSFW", " / premium video platforms"],
+                ["One-time license", " — no monthly platform fees"],
+                ["Full source code", " with knowledge transfer"],
+                ["Infinite scroll short-video feed (Reels / TikTok style)"],
+                ["Video transcoding", " + adaptive ", "streaming", " pipeline"],
+                ["Cloudflare ", "CDN", " + R2 storage integration ready"],
+                ["Works with high-bandwidth media content"],
+                ["Backend", " ready for ", "100K+ users", " concurrent"],
+                ["Monetization", " ready (ads, subscriptions, paywall, custom billing)"],
+                ["White-label", " platform — your brand, your domain, your rules"],
+                ["Cache protection + anti-overload architecture"],
+                ["Optimized for large media & ", "adult", " content sites"],
+              ] as const).map((parts, idx) => (
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: idx * 0.045 }}
+                  className="flex items-start gap-3"
+                  style={{ fontSize: "0.925rem" }}
+                >
+                  <span
+                    className="mt-[2px] shrink-0 font-bold text-[13px]"
+                    style={{
+                      color: "hsl(142, 80%, 58%)",
+                      filter: "drop-shadow(0 0 5px hsl(142 80% 58% / 0.65))",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    ✓
+                  </span>
+                  <span className="text-gray-200 leading-relaxed">
+                    {parts.map((part, pi) =>
+                      pi % 2 === 1 ? (
+                        <strong key={pi} className="text-white font-semibold">
+                          {part}
+                        </strong>
+                      ) : (
+                        <span key={pi}>{part}</span>
+                      )
+                    )}
+                  </span>
+                </motion.li>
               ))}
             </ul>
+
+            {/* CTA */}
             <NavLink
-              to="/blog/instagram-reel-clone"
-              className="inline-flex items-center text-primary hover:underline font-medium"
+              to="/blog/revhub-media-cms-platform"
+              className="inline-flex items-center gap-2 font-bold transition-all duration-200 hover:opacity-90"
+              style={{
+                fontSize: "1.05rem",
+                color: "hsl(142, 80%, 60%)",
+                textShadow:
+                  "0 0 22px hsl(142 80% 58% / 0.55), 0 0 8px hsl(142 80% 58% / 0.35)",
+                marginTop: "0.5rem",
+              }}
             >
-              Read the full case study →
+              Run your own adult platform. Control your content. Keep 100% of the revenue.{" "}
+              <span style={{ filter: "brightness(1.4)" }}>→</span>
             </NavLink>
+
           </div>
 
           {/* Right: Phone Mockup with Reels */}
           <div className="flex justify-center">
-            <div className="relative w-[280px] h-[580px]">
+            <motion.div
+              whileHover={{ scale: 1.025 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative w-[280px] h-[580px]"
+            >
+              {/* Green glow behind phone */}
+              <div
+                className="absolute inset-0 rounded-[40px] z-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at 50% 60%, hsl(142 76% 40% / 0.18) 0%, transparent 70%)",
+                  filter: "blur(18px)",
+                  transform: "scale(1.15)",
+                }}
+              />
               {/* Phone frame */}
-              <div className="absolute inset-0 rounded-[40px] border-[3px] border-white/20 bg-black overflow-hidden shadow-2xl shadow-black/50">
+              <div
+                className="absolute inset-0 rounded-[40px] border-[3px] border-white/20 bg-black overflow-hidden z-10"
+                style={{
+                  boxShadow:
+                    "0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04), 0 0 40px hsl(142 76% 40% / 0.12)",
+                }}
+              >
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-2xl z-20" />
 
@@ -287,7 +402,7 @@ const ReelShowcase = () => {
                 {/* Bottom home indicator */}
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/40 rounded-full z-20" />
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

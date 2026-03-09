@@ -159,10 +159,10 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    slug: "instagram-reel-clone",
-    title: "RevHub — Instagram Reel Clone",
+    slug: "revhub-media-cms-platform",
+    title: "RevHub — Flagship Media CMS",
     summary: "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine, multi uploaders, Instagram like CMS platform, best for people to monitize media contents",
-    image: "/products/reelbox.jpg",
+    image: "/products/revhub.jpg",
     date: "2026-02-20",
     readTime: "10 min read",
     category: "Product / Full-Stack",

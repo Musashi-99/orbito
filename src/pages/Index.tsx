@@ -28,7 +28,7 @@ const ourWorkItems = [
     summary:
       "White-label short-video platform with infinite scroll, video transcoding, and recommendation engine, multi uploaders, Instagram like CMS platform, best for people to monitize media contents",
     url: "/blog/revhub-media-cms-platform",
-    image: "/products/reelbox.jpg",
+    image: "/products/revhub.jpg",
   },
   {
     id: "work-1",
@@ -233,8 +233,7 @@ const Index = () => {
         <ExecutionRoadmapSection />
       </div>
 
-      {/* RevHub Showcase */}
-      <div className="bg-black">
+      <div id="revhub" className="bg-black">
         <ReelShowcase />
       </div>
 
