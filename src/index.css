@@ -34,6 +34,11 @@
   * {
     @apply border-border;
   }
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -94,4 +99,22 @@
 .green-glow-hover:hover {
   box-shadow: 0 0 20px rgba(74, 222, 128, 0.15), 0 0 40px rgba(74, 222, 128, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
   border-color: hsl(var(--primary) / 0.4);
+}
+
+@layer components {
+  .page-eyebrow {
+    @apply inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary;
+  }
+
+  .page-panel {
+    @apply rounded-[28px] border border-white/10 bg-white/[0.03] p-6 md:p-8 backdrop-blur-sm shadow-[0_24px_80px_rgba(0,0,0,0.32)];
+  }
+
+  .page-panel-muted {
+    @apply rounded-[24px] border border-white/5 bg-white/[0.02] p-5 md:p-6 backdrop-blur-sm;
+  }
+
+  .page-kicker {
+    @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/80;
+  }
 }

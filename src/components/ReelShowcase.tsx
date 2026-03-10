@@ -6,7 +6,6 @@ import {
   MessageCircle,
   Share2,
   Music2,
-  Plus,
   Bookmark,
 } from "lucide-react";
 
@@ -213,23 +212,21 @@ const ReelShowcase = () => {
   }, []);
 
   return (
-    <section className="py-32 bg-black">
+    <section className="bg-black py-20 lg:py-24">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 items-start gap-12 xl:grid-cols-[minmax(0,1.18fr)_minmax(340px,420px)] xl:gap-8"
         >
           {/* Left: Info */}
-          <div className="max-w-[520px]">
-
-            {/* RevHub label */}
+          <div className="max-w-none xl:pr-10">
             <div
-              className="mb-5 inline-block"
+              className="mb-4 inline-block"
               style={{
-                fontSize: "3.2rem",
+                fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
                 fontWeight: 800,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
@@ -241,54 +238,50 @@ const ReelShowcase = () => {
               RevHub
             </div>
 
-            {/* Main headline */}
             <h2
-              className="mb-8 font-extrabold tracking-tight text-white"
+              className="mb-5 max-w-3xl font-extrabold tracking-tight text-white"
               style={{
-                fontSize: "clamp(1.75rem, 3.5vw, 2.6rem)",
-                lineHeight: 1.13,
-                maxWidth: "26rem",
+                fontSize: "clamp(2rem, 4vw, 3.3rem)",
+                lineHeight: 1.04,
               }}
             >
               Launch Your Own Adult Video Platform.
-              <span className="block mt-1">Own the Content. Keep the Revenue.</span>
+              <span className="mt-2 block">Own the Content. Keep the Revenue.</span>
             </h2>
 
-            {/* Subtitle */}
-            <p
-              className="mb-4 leading-[1.9] text-gray-400"
-              style={{ fontSize: "0.9rem", maxWidth: "30rem" }}
-            >
-              A production-ready, white-label video platform built for founders
-              who want to run their own{" "}
-              <strong className="text-gray-200 font-semibold">NSFW</strong>,{" "}
-              <strong className="text-gray-200 font-semibold">adult</strong>, or premium content website
-              without building the{" "}
-              <strong className="text-gray-200 font-semibold">infrastructure</strong> from scratch.
+            <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(220px,0.85fr)] lg:items-start">
+              <p className="max-w-2xl text-base leading-8 text-gray-300 md:text-[1.02rem]">
+                A production-ready, white-label platform for founders who want
+                to launch their own{" "}
+                <strong className="font-semibold text-white">NSFW</strong>,{" "}
+                <strong className="font-semibold text-white">adult</strong>, or
+                premium video business without building the streaming stack from
+                scratch.
+              </p>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/80">
+                  Why it works
+                </p>
+                <p className="mt-3 text-sm leading-7 text-gray-400">
+                  RevHub packages the launch-critical parts of the product into
+                  one deployable system: playback, feed discovery, media
+                  processing, caching, and monetization hooks.
+                </p>
+              </div>
+            </div>
+
+            <p className="mb-10 max-w-4xl text-sm leading-8 text-gray-500 md:text-[0.98rem]">
+              RevHub is built for operators who want full control over brand,
+              pricing, and audience ownership. Instead of depending on
+              third-party platforms that cap revenue or control distribution, it
+              gives you the full product foundation: video transcoding,
+              infinite-scroll feeds, CDN streaming, recommendation logic, cache
+              protection, and a scalable backend already tested for real media
+              traffic. That compresses years of platform work into a launchable
+              product.
             </p>
 
-            {/* Body paragraph */}
-            <p
-              className="mb-12 leading-[1.95] text-gray-500"
-              style={{ fontSize: "0.85rem", maxWidth: "30rem" }}
-            >
-              RevHub is built for people who want to host and run their own{" "}
-              <strong className="text-gray-300 font-semibold">adult</strong> or premium video content
-              platform. Instead of depending on third-party sites that take your
-              revenue, restrict content, or control your audience, RevHub gives
-              you the complete{" "}
-              <strong className="text-gray-300 font-semibold">infrastructure</strong> to launch your
-              own branded platform — video transcoding pipeline, infinite scroll
-              feed,{" "}
-              <strong className="text-gray-300 font-semibold">CDN streaming</strong>, caching system,
-              recommendation engine, and scalable{" "}
-              <strong className="text-gray-300 font-semibold">backend</strong> architecture — already
-              built and production-tested. No large engineering team required. No
-              years of development. No platform restrictions.
-            </p>
-
-            {/* Bullet list */}
-            <ul className="space-y-[16px] mb-14">
+            <ul className="mb-12 grid gap-4 sm:grid-cols-2 xl:gap-x-8">
               {([
                 ["Built for ", "adult", " / ", "NSFW", " / premium video platforms"],
                 ["One-time license", " — no monthly platform fees"],
@@ -309,8 +302,7 @@ const ReelShowcase = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: idx * 0.045 }}
-                  className="flex items-start gap-3"
-                  style={{ fontSize: "0.925rem" }}
+                  className="flex items-start gap-3 rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3"
                 >
                   <span
                     className="mt-[2px] shrink-0 font-bold text-[13px]"
@@ -322,7 +314,7 @@ const ReelShowcase = () => {
                   >
                     ✓
                   </span>
-                  <span className="text-gray-200 leading-relaxed">
+                  <span className="text-[0.95rem] leading-relaxed text-gray-200">
                     {parts.map((part, pi) =>
                       pi % 2 === 1 ? (
                         <strong key={pi} className="text-white font-semibold">
@@ -356,11 +348,11 @@ const ReelShowcase = () => {
           </div>
 
           {/* Right: Phone Mockup with Reels */}
-          <div className="flex justify-center">
+          <div className="flex justify-center xl:justify-end">
             <motion.div
               whileHover={{ scale: 1.025 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-[280px] h-[580px]"
+              className="relative h-[620px] w-[300px] md:h-[650px] md:w-[312px] xl:h-[690px] xl:w-[330px]"
             >
               {/* Green glow behind phone */}
               <div

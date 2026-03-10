@@ -21,6 +21,7 @@ import ReelShowcase from "@/components/ReelShowcase";
 import YouTubeShowcase from "@/components/YouTubeShowcase";
 import SecurityMethodology from "@/components/SecurityMethodology";
 import ExecutionRoadmapSection from "@/components/ExecutionRoadmapSection";
+import { useLocation } from "react-router-dom";
 
 const ourWorkItems = [
   {
@@ -75,9 +76,29 @@ const ourWorkItems = [
 ];
 
 const Index = () => {
+  const location = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    const sectionId = location.hash.replace("#", "");
+
+    requestAnimationFrame(() => {
+      const element = document.getElementById(sectionId);
+      if (!element) {
+        return;
+      }
+
+      const yOffset = -80;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
+  }, [location.hash]);
   return (
     <div className="min-h-screen bg-black text-foreground">
       <Navigation />
@@ -234,11 +255,11 @@ const Index = () => {
         <ExecutionRoadmapSection />
       </div>
 
-      <div id="revhub" className="bg-black">
+      <div id="revhub" className="bg-black px-2 md:px-4">
         <ReelShowcase />
       </div>
 
-      <div id="vidstack" className="bg-black">
+      <div id="vidstack" className="bg-black px-2 md:px-4">
         <YouTubeShowcase />
       </div>
 

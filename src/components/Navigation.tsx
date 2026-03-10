@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,34 +29,28 @@ const Navigation = () => {
     }
   };
 
+  const goToSection = (sectionId: string) => {
+    if (location.pathname === "/") {
+      scrollToSection(sectionId);
+      return;
+    }
+
+    navigate(`/#${sectionId}`);
+  };
+
   const navItems = [
-    {
-      name: "Features",
-      href: "#features",
-      onClick: () => scrollToSection("features"),
-    },
-    {
-      name: "Our Work",
-      href: "#our-work",
-      onClick: () => scrollToSection("our-work"),
-    },
     {
       name: "RevHub",
       href: "#revhub",
-      onClick: () => scrollToSection("revhub"),
-    },
-    {
-      name: "Testimonials",
-      href: "#testimonials",
-      onClick: () => scrollToSection("testimonials"),
+      onClick: () => goToSection("revhub"),
     },
   ];
 
   return (
     <header
       className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${isScrolled
-        ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[90%] max-w-2xl"
-        : "h-14 bg-[#1B1B1B] w-[95%] max-w-3xl"
+        ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[90%] max-w-xl"
+        : "h-14 bg-[#1B1B1B] w-[95%] max-w-2xl"
         }`}
     >
       <div className="mx-auto h-full px-6">
@@ -88,7 +83,7 @@ const Navigation = () => {
               </a>
             ))}
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => navigate("/contact")}
               size="sm"
               className="button-gradient"
             >
@@ -125,7 +120,7 @@ const Navigation = () => {
                   <Button
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      scrollToSection("contact");
+                      navigate("/contact");
                     }}
                     className="button-gradient mt-4"
                   >

@@ -100,7 +100,7 @@ const ContactForm = () => {
                 />
             </div>
             <Button
-                className="w-full button-gradient"
+                className="w-[25ch] button-gradient"
                 type="submit"
                 disabled={loading}
             >

@@ -1,49 +1,168 @@
 import { useEffect } from "react";
-import { ContactCard } from "@/components/ui/contact-card";
-import { MailIcon, PhoneIcon, MapPinIcon } from "lucide-react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import { Clock3, Mail, MapPin, Phone, Send } from "lucide-react";
+
 import ContactForm from "@/components/ContactForm";
+import StaticPageShell from "@/components/StaticPageShell";
+
+const contactDetails = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "orbitohq@gmail.com",
+    href: "mailto:orbitohq@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+92 312 1234567",
+    href: "tel:+923121234567",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Remote global team",
+    href: null,
+  },
+];
+
+const responseNotes = [
+  "Best for new builds, platform upgrades, and technical rescue work.",
+  "Share your product goal, current blockers, stack, and timeline if you have them.",
+  "We usually respond within one business day.",
+];
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
-    <div className="min-h-screen bg-black text-foreground">
-      <Navigation />
-
-      <main className="relative flex w-full items-center justify-center p-4 pt-32 pb-20">
-        <div className="mx-auto max-w-5xl w-full">
-          <ContactCard
-            title="Contact Us"
-            description="If you have any questions regarding our Services or need help, please fill out the form here. We do our best to respond within 1 business day."
-            contactInfo={[
-              {
-                icon: MailIcon,
-                label: "Email",
-                value: "orbitohq@gmail.com",
-              },
-              {
-                icon: PhoneIcon,
-                label: "Phone",
-                value: "+92 312 1234567",
-              },
-              {
-                icon: MapPinIcon,
-                label: "Address",
-                value: "Remote Global Team",
-                className: "col-span-2",
-              },
-            ]}
-          >
-            <ContactForm />
-          </ContactCard>
+    <StaticPageShell
+      eyebrow="Contact"
+      title={
+        <>
+          Start the conversation.
+          <br />
+          We will handle the <span className="heading-accent italic">technical path</span>.
+        </>
+      }
+      description={
+        <>
+          If you are planning a product, scaling an existing system, or trying
+          to untangle a hard engineering problem, send the details here. The
+          more context you share, the faster we can be useful.
+        </>
+      }
+      heroAside={
+        <div className="page-panel max-w-md">
+          <p className="page-kicker">Before you send</p>
+          <div className="mt-5 space-y-3">
+            {responseNotes.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-4 text-sm leading-7 text-gray-300"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      }
+    >
+      <section className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+        <motion.aside
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45 }}
+          className="space-y-6"
+        >
+          <div className="page-panel">
+            <p className="page-kicker">Reach us directly</p>
+            <div className="mt-5 space-y-4">
+              {contactDetails.map((item) => (
+                <div key={item.label} className="page-panel-muted">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                      <item.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white">
+                        {item.label}
+                      </p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="mt-1 block text-sm leading-7 text-gray-400 transition-colors hover:text-white"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="mt-1 text-sm leading-7 text-gray-400">
+                          {item.value}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      <Footer />
-    </div>
+          <div className="page-panel">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+              <Clock3 className="h-6 w-6" />
+            </div>
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">
+              What happens next
+            </h2>
+            <div className="mt-5 space-y-3">
+              {[
+                "We review the request and check technical fit.",
+                "If relevant, we follow up for missing context.",
+                "Then we propose the best next step: call, scope discussion, or direct estimate path.",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3 text-sm leading-7 text-gray-300"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.aside>
+
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45, delay: 0.08 }}
+          className="page-panel"
+        >
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
+              <Send className="h-7 w-7" />
+            </div>
+            <div>
+              <p className="page-kicker">Project inquiry</p>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
+                Tell us what you are building.
+              </h2>
+            </div>
+          </div>
+          <p className="mt-5 max-w-2xl text-sm leading-8 text-gray-400 md:text-[0.98rem]">
+            Include the product type, current stage, stack if known, and the
+            main problem you want solved. That helps us respond with something
+            specific instead of sending you generic follow-up questions.
+          </p>
+          <div className="mt-8 rounded-[24px] border border-white/5 bg-black/30 p-5 md:p-6">
+            <ContactForm />
+          </div>
+        </motion.section>
+      </section>
+    </StaticPageShell>
   );
 };
 
