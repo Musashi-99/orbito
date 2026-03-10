@@ -46,6 +46,40 @@ const Navigation = () => {
     },
   ];
 
+  const mobileNavItems = [
+    {
+      name: "Home",
+      href: "/",
+      onClick: () => navigate("/"),
+    },
+    ...navItems,
+    {
+      name: "Services",
+      href: "/services",
+      onClick: () => navigate("/services"),
+    },
+    {
+      name: "About",
+      href: "/about",
+      onClick: () => navigate("/about"),
+    },
+    {
+      name: "Contact",
+      href: "/contact",
+      onClick: () => navigate("/contact"),
+    },
+    {
+      name: "Privacy Policy",
+      href: "/privacy-policy",
+      onClick: () => navigate("/privacy-policy"),
+    },
+    {
+      name: "Terms of Service",
+      href: "/terms-of-service",
+      onClick: () => navigate("/terms-of-service"),
+    },
+  ];
+
   return (
     <header
       className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${isScrolled
@@ -101,7 +135,7 @@ const Navigation = () => {
               </SheetTrigger>
               <SheetContent className="bg-[#1B1B1B]">
                 <div className="flex flex-col gap-4 mt-8">
-                  {navItems.map((item) => (
+                  {mobileNavItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}

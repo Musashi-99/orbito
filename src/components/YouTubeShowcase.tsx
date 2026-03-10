@@ -295,7 +295,7 @@ const YouTubeShowcase = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.08 }}
-                className="mx-auto flex w-full max-w-[760px] justify-center"
+                className="mx-auto hidden w-full max-w-[760px] justify-center lg:flex"
               >
                 <div className="relative w-[300px] sm:w-[330px]">
                   <div
