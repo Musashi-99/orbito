@@ -1,9 +1,21 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
+import DateTimePicker from "@/components/DateTimePicker";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+
+const getCurrentDateTimeValue = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+};
 
 const ContactForm = () => {
     const { toast } = useToast();
@@ -12,11 +24,23 @@ const ContactForm = () => {
         name: "",
         email: "",
         phone: "",
+        preferredDateTime: "",
         message: "",
     });
+    const minDateTime = getCurrentDateTimeValue();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!formData.preferredDateTime) {
+            toast({
+                title: "Select a date and time",
+                description: "Choose your preferred date and time before submitting.",
+                variant: "destructive",
+            });
+            return;
+        }
+
         setLoading(true);
 
         try {
@@ -31,7 +55,7 @@ const ContactForm = () => {
                     name: formData.name,
                     email: formData.email,
                     subject: "Contact us",
-                    message: `Phone: ${formData.phone}\n\n${formData.message}`,
+                    message: `Phone: ${formData.phone || "Not provided"}\nPreferred date and time: ${formData.preferredDateTime}\n\n${formData.message}`,
                 }),
             });
 
@@ -40,7 +64,13 @@ const ContactForm = () => {
                     title: "Message sent!",
                     description: "We'll get back to you within 1 business day.",
                 });
-                setFormData({ name: "", email: "", phone: "", message: "" });
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    preferredDateTime: "",
+                    message: "",
+                });
             } else {
                 throw new Error('Failed to send message');
             }
@@ -90,13 +120,21 @@ const ContactForm = () => {
                 />
             </div>
             <div className="flex flex-col gap-2">
+                <Label className="text-white">Preferred Date and Time</Label>
+                <DateTimePicker
+                    value={formData.preferredDateTime}
+                    onChange={(value) => setFormData({ ...formData, preferredDateTime: value })}
+                    minDateTime={minDateTime}
+                />
+            </div>
+            <div className="flex flex-col gap-2">
                 <Label className="text-white">Message</Label>
                 <Textarea
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 min-h-[100px]"
-                    placeholder="Tell us about your project..."
+                    placeholder="Tell us about your project and what you want to discuss..."
                 />
             </div>
             <Button

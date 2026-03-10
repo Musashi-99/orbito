@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -148,13 +148,7 @@ const BlogPostPage = () => {
               project.
             </p>
             <Button className="button-gradient" size="lg" asChild>
-              <a
-                href="https://cal.com/your-company"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book a Meeting
-              </a>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </motion.div>

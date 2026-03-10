@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { appConfig } from "@/config/features";
 import { ContactCard } from "@/components/ui/contact-card";
 import ContactForm from "./ContactForm";
 
@@ -38,17 +39,17 @@ const ContactSection = () => {
               {
                 icon: Mail,
                 label: 'Email',
-                value: 'orbitohq@gmail.com',
+                value: appConfig.contact.email,
               },
               {
                 icon: Phone,
                 label: 'Phone',
-                value: '+92 312 1234567',
+                value: appConfig.contact.phoneDisplay,
               },
               {
                 icon: MapPin,
                 label: 'Location',
-                value: 'Remote Global Team',
+                value: appConfig.contact.location,
                 className: 'col-span-2',
               }
             ]}

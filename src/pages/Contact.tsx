@@ -1,35 +1,30 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Clock3, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 import ContactForm from "@/components/ContactForm";
+import { appConfig } from "@/config/features";
 import StaticPageShell from "@/components/StaticPageShell";
 
 const contactDetails = [
   {
     icon: Mail,
     label: "Email",
-    value: "orbitohq@gmail.com",
-    href: "mailto:orbitohq@gmail.com",
+    value: appConfig.contact.email,
+    href: `mailto:${appConfig.contact.email}`,
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+92 312 1234567",
-    href: "tel:+923121234567",
+    value: appConfig.contact.phoneDisplay,
+    href: appConfig.contact.phoneHref,
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "Remote global team",
+    value: appConfig.contact.location,
     href: null,
   },
-];
-
-const responseNotes = [
-  "Best for new builds, platform upgrades, and technical rescue work.",
-  "Share your product goal, current blockers, stack, and timeline if you have them.",
-  "We usually respond within one business day.",
 ];
 
 const Contact = () => {
@@ -58,7 +53,7 @@ const Contact = () => {
         <div className="page-panel max-w-md">
           <p className="page-kicker">Before you send</p>
           <div className="mt-5 space-y-3">
-            {responseNotes.map((item) => (
+            {appConfig.contact.responseNotes.map((item) => (
               <div
                 key={item}
                 className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-4 text-sm leading-7 text-gray-300"
@@ -111,18 +106,11 @@ const Contact = () => {
           </div>
 
           <div className="page-panel">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-              <Clock3 className="h-6 w-6" />
-            </div>
             <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">
               What happens next
             </h2>
             <div className="mt-5 space-y-3">
-              {[
-                "We review the request and check technical fit.",
-                "If relevant, we follow up for missing context.",
-                "Then we propose the best next step: call, scope discussion, or direct estimate path.",
-              ].map((item) => (
+              {appConfig.contact.nextSteps.map((item) => (
                 <div
                   key={item}
                   className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3 text-sm leading-7 text-gray-300"
@@ -141,16 +129,11 @@ const Contact = () => {
           transition={{ duration: 0.45, delay: 0.08 }}
           className="page-panel"
         >
-          <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
-              <Send className="h-7 w-7" />
-            </div>
-            <div>
-              <p className="page-kicker">Project inquiry</p>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
-                Tell us what you are building.
-              </h2>
-            </div>
+          <div>
+            <p className="page-kicker">Project inquiry</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
+              Tell us what you are building.
+            </h2>
           </div>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-gray-400 md:text-[0.98rem]">
             Include the product type, current stage, stack if known, and the

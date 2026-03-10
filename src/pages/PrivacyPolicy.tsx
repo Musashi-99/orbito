@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { LockKeyhole, Mail, ShieldCheck } from "lucide-react";
 
 import StaticPageShell from "@/components/StaticPageShell";
+import { appConfig } from "@/config/features";
 import { Button } from "@/components/ui/button";
 
 const policySections = [
@@ -113,7 +114,7 @@ const PrivacyPolicy = () => {
             {[
               "Applies to website visitors, inquiries, and service conversations",
               "Information is used for operations, communication, and service delivery",
-              "Questions can be sent to orbitohq@gmail.com",
+              `Questions can be sent to ${appConfig.contact.email}`,
             ].map((item) => (
               <div
                 key={item}
@@ -150,7 +151,7 @@ const PrivacyPolicy = () => {
               {
                 icon: Mail,
                 title: "Reach us",
-                text: "orbitohq@gmail.com for privacy questions or data requests.",
+                text: `${appConfig.contact.email} for privacy questions or data requests.`,
               },
             ].map((item) => (
               <div key={item.title} className="page-panel-muted">

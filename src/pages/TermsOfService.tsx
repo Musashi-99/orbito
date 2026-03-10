@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FileCheck2, Landmark, Mail, Scale } from "lucide-react";
 
 import StaticPageShell from "@/components/StaticPageShell";
+import { appConfig } from "@/config/features";
 import { Button } from "@/components/ui/button";
 
 const termsSections = [
@@ -108,7 +109,7 @@ const TermsOfService = () => {
             {[
               "Project specifics are always defined in a separate proposal or agreement",
               "Ownership and payment terms depend on the active engagement terms",
-              "Questions can be sent to orbitohq@gmail.com",
+              `Questions can be sent to ${appConfig.contact.email}`,
             ].map((item) => (
               <div
                 key={item}
@@ -150,7 +151,7 @@ const TermsOfService = () => {
               {
                 icon: Mail,
                 title: "Questions",
-                text: "For contract or terms clarifications, contact orbitohq@gmail.com.",
+                text: `For contract or terms clarifications, contact ${appConfig.contact.email}.`,
               },
             ].map((item) => (
               <div key={item.title} className="page-panel-muted">
